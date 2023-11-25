@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.ProjectItemViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/project_item_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/dimen_large"
+        android:paddingEnd="@dimen/dimen_large"
+        android:paddingStart="@dimen/dimen_large">
+
+        <androidx.cardview.widget.CardView style="@style/AppCard">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_gradient_ripple_transparent"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{viewModel::onClick}"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_xxlarge"
+                    android:background="@drawable/card_gradient_ripple_white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="@{viewModel::onClick}">
+
+                    <ImageView
+                        android:id="@+id/arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dimen_small"
+                        android:background="@drawable/ic_keyboard_arrow_right_white_24px" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dimen_xlarge"
+                        android:layout_toStartOf="@+id/arrow"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/roboto"
+                        android:maxLines="1"
+                        android:text="@{viewModel.title}"
+                        android:textColor="@color/headerTextColor"
+                        android:textSize="@dimen/text_large"
+                        android:textStyle="bold"
+                        tools:text="la hacienda el roble rojo tomate" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tasks_pending"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginBottom="@dimen/dimen_large"
+                        android:layout_marginStart="@dimen/dimen_xlarge"
+                        android:layout_marginTop="@dimen/dimen_large"
+                        android:layout_toStartOf="@+id/pending_tasks_quantity"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/pending_tasks"
+                        android:textColor="@color/listContentTextColor"
+                        android:textSize="@dimen/text_small"
+                        tools:text="Tareas por completar en el proyecto" />
+
+                    <TextView
+                        android:id="@+id/pending_tasks_quantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/tasks_pending"
+                        android:layout_alignTop="@+id/tasks_pending"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dimen_xlarge"
+                        android:layout_toStartOf="@+id/tasks_pending_button"
+                        android:gravity="center"
+                        android:text="@{viewModel.pendingTasks}"
+                        android:textColor="@color/listContentTextColor"
+                        android:textSize="@dimen/text_small"
+                        android:textStyle="bold" />
+
+                    <FrameLayout
+                        android:id="@+id/tasks_pending_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/dimen_medium"
+                        android:layout_marginEnd="@dimen/dimen_xlarge"
+                        android:layout_marginStart="@dimen/dimen_xlarge"
+                        android:layout_marginTop="@dimen/dimen_medium"
+                        android:background="@drawable/button_card_rounded_outline"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{viewModel::onClick}"
+                        android:paddingBottom="@dimen/dimen_smaller"
+                        android:paddingEnd="@dimen/dimen_medium"
+                        android:paddingStart="@dimen/dimen_medium"
+                        android:paddingTop="@dimen/dimen_smaller">
+
+                        <TextView
+                            style="@style/ActionSmallCardButton"
+                            android:fontFamily="@font/roboto"
+                            android:text="@string/view_more" />
+
+                    </FrameLayout>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_smaller"
+                    android:background="@color/cardDivider"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tasks_done"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginBottom="@dimen/dimen_large"
+                        android:layout_marginStart="@dimen/dimen_xlarge"
+                        android:layout_marginTop="@dimen/dimen_large"
+                        android:layout_toStartOf="@+id/done_tasks_quantity"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/done_tasks"
+                        android:textColor="@color/listContentTextColor"
+                        android:textSize="@dimen/text_small"
+                        tools:text="Tareas completadas en el proyecto" />
+
+                    <TextView
+                        android:id="@+id/done_tasks_quantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dimen_xlarge"
+                        android:layout_toStartOf="@+id/tasks_done_button"
+                        android:text="@{viewModel.doneTasks}"
+                        android:textColor="@color/listContentTextColor"
+                        android:textSize="@dimen/text_small"
+                        android:textStyle="bold" />
+
+                    <FrameLayout
+                        android:id="@+id/tasks_done_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/dimen_medium"
+                        android:layout_marginEnd="@dimen/dimen_xlarge"
+                        android:layout_marginStart="@dimen/dimen_xlarge"
+                        android:layout_marginTop="@dimen/dimen_medium"
+                        android:background="@drawable/button_card_rounded_outline"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingBottom="@dimen/dimen_smaller"
+                        android:paddingEnd="@dimen/dimen_medium"
+                        android:paddingStart="@dimen/dimen_medium"
+                        android:paddingTop="@dimen/dimen_smaller">
+
+                        <TextView
+                            style="@style/ActionSmallCardButton"
+                            android:fontFamily="@font/roboto"
+                            android:text="@string/view_more" />
+
+                    </FrameLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</layout>

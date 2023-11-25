@@ -1,0 +1,11 @@
+<resources>
+    <string name="predio_follow_up_form">Seguimiento predial</string>
+    <string name="predio_follow_up_form_title">Formato de seguimiento predial</string>
+    <string name="basin">Cuenca</string>
+    <string name="program">Programa</string>
+    <string name="project">Proyecto</string>
+    <string name="object">Objecto</string>
+    <string name="activities">Actividades</string>
+    <string name="predio_follow_up_observations">Observaciones (recomendaciones, compromisos, concluciones)</string>
+    <string name="missing_comments">Ingresa el comentario</string>
+</resources>

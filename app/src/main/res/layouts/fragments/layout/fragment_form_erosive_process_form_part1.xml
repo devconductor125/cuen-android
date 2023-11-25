@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.form.erosiveProcessForm.FormErosiveProcessFormViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/erosive_process_detail"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FormTitleText"
+                    android:text="@string/erosive_process_detail"
+                    tools:text="Encuesta predio" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/dimen_xlarge">
+
+                    <Button
+                        android:id="@+id/identification_date_button"
+                        style="@style/FormButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:onClick="@{viewModel::showDatePicker}"
+                        android:text="@string/identification_date" />
+
+                    <TextView
+                        android:id="@+id/identification_date"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/identification_date_button"
+                        android:layout_alignTop="@+id/identification_date_button"
+                        android:layout_marginTop="@dimen/dimen_invisible"
+                        android:layout_toEndOf="@+id/identification_date_button"
+                        android:text="@{viewModel.erosiveProcessForm.identificationDate.string}" />
+
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/basin" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/la_fe"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.erosiveProcessForm.laFe}"
+                        android:text="@string/la_fe" />
+
+                    <RadioButton
+                        android:id="@+id/rio_grande"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.erosiveProcessForm.rioGrande}"
+                        android:text="@string/rio_grande" />
+
+                </RadioGroup>
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/municipality"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/municipality"
+                    app:value="@={viewModel.erosiveProcessForm.municipality}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/lane"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/lane"
+                    app:value="@={viewModel.erosiveProcessForm.lane}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/hydrological_source"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/water_source"
+                    app:value="@={viewModel.erosiveProcessForm.hydrologicalSource}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/status"
+                    app:value="@={viewModel.erosiveProcessForm.status}" />
+
+                <FrameLayout
+                    android:id="@+id/comment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/text_small"
+                    android:layout_marginStart="@dimen/text_small"
+                    android:layout_marginTop="@dimen/dimen_large_l"
+                    android:background="@drawable/form_text_field_rounded_outline">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/comment_container_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/comment_height"
+                        android:layout_marginTop="@dimen/dimen_large"
+                        android:gravity="top"
+                        android:hint="@string/observations"
+                        android:paddingTop="@dimen/dimen_medium_s"
+                        android:theme="@style/TextLabel">
+
+                        <EditText
+                            android:id="@+id/comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/transparent"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="top"
+                            android:inputType="textMultiLine"
+                            android:lines="8"
+                            android:maxLines="40"
+                            android:scrollbars="vertical"
+                            android:text="@={viewModel.erosiveProcessForm.comments}"
+                            android:textColor="@color/formTextFieldTextColor"
+                            android:textSize="@dimen/text_small" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onSaveParcelable}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/save"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

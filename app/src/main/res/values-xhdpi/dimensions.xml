@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Generic dimensions -->
+    <dimen name="dimen_invisible">0dp</dimen>
+    <dimen name="dimen_micro">0.5dp</dimen>
+    <dimen name="dimen_tiny">1dp</dimen>
+    <dimen name="dimen_smaller">2dp</dimen>
+    <dimen name="dimen_small_s">4dp</dimen>
+    <dimen name="dimen_small">6dp</dimen>
+    <dimen name="dimen_medium_s">8dp</dimen>
+    <dimen name="dimen_medium">10dp</dimen>
+    <dimen name="dimen_large">12dp</dimen>
+    <dimen name="dimen_large_l">16dp</dimen>
+    <dimen name="dimen_xlarge">21dp</dimen>
+    <dimen name="dimen_xxlarge">50dp</dimen>
+    <dimen name="dimen_xxxlarge">60dp</dimen>
+    <dimen name="dimen_xxxxlarge">70dp</dimen>
+
+    <dimen name="text_micro">8sp</dimen>
+    <dimen name="text_tiny">12sp</dimen>
+    <dimen name="text_smaller">14sp</dimen>
+    <dimen name="text_small">17sp</dimen>
+    <dimen name="text_medium">21sp</dimen>
+    <dimen name="text_large">23sp</dimen>
+    <dimen name="text_huge">26sp</dimen>
+    <dimen name="text_larger">26sp</dimen>
+    <dimen name="text_slarge">24sp</dimen>
+
+    <!-- Functional dimensions -->
+    <dimen name="cell_width">34dp</dimen>
+    <dimen name="cell_height">34dp</dimen>
+    <dimen name="button_width">73dp</dimen>
+    <dimen name="button_height">49dp</dimen>
+    <dimen name="button_cell_shadow_margin_bottom">6dp</dimen>
+    <dimen name="button_radius">6dp</dimen>
+    <dimen name="app_bar_layout_height">200dp</dimen>
+    <dimen name="app_bar_layout_backdrop_margin_top">36dp</dimen>
+    <dimen name="app_bar_layout_backdrop_dimension">34dp</dimen>
+    <dimen name="app_bar_layout_backdrop_margin_bottom">16dp</dimen>
+    <dimen name="view_more_button_height">30dp</dimen>
+    <dimen name="navigation_bar_height">48dp</dimen>
+    <dimen name="bottom_bar_height">56dp</dimen>
+    <dimen name="card_arrow_height">40dp</dimen>
+    <dimen name="action_button_height">40dp</dimen>
+    <dimen name="action_button_2_height">34dp</dimen>
+    <dimen name="action_button_margin_top_log_in">43dp</dimen>
+    <dimen name="app_bar_bottom_padding">48dp</dimen>
+    <dimen name="list_header_height">40dp</dimen>
+    <dimen name="tool_bar_icon">24dp</dimen>
+
+    <!-- LogIn view Functional dimensions -->
+    <dimen name="imago_size">90dp</dimen>
+    <dimen name="logo_name_height">45dp</dimen>
+    <dimen name="form_text_field_log_in_height">80dp</dimen>
+    <dimen name="imago_bottom_margin_top">28dp</dimen>
+    <dimen name="logo_name_margin_top">20dp</dimen>
+    <dimen name="small_logo_background_height">64dp</dimen>
+    <dimen name="imago_top_top_margin">44dp</dimen>
+    <dimen name="imago_bottom_top">90dp</dimen>
+    <dimen name="imago_bottom_margin">44dp</dimen>
+
+    <!-- Form view Functional dimensions -->
+    <dimen name="form_title_text_height">46dp</dimen>
+    <dimen name="form_text_field_height">64dp</dimen>
+    <dimen name="next_button_corner_radius">30dp</dimen>
+    <dimen name="question_title_height">46dp</dimen>
+
+    <!-- Dashboard header view Functional dimensions -->
+    <dimen name="dashboard_progress_bar_dimension">102dp</dimen>
+    <dimen name="dashboard_progress_bar_number_text_size">18sp</dimen>
+    <dimen name="settings_button_size">36dp</dimen>
+
+    <!-- Action item dimensions -->
+    <dimen name="item_divider">2dp</dimen>
+
+    <!-- Comment dialog dimensions -->
+    <dimen name="comment_height">200dp</dimen>
+    <dimen name="cat_dialog_height">150dp</dimen>
+    <dimen name="feature_comment_height">200dp</dimen>
+
+    <!-- Monitor maintenance dialog dimensions -->
+    <dimen name="images_list_height">150dp</dimen>
+
+    <!-- Task detail header dimensions -->
+    <dimen name="task_detail_header_height">129dp</dimen>
+    <dimen name="task_detail_dates_height">55dp</dimen>
+    <dimen name="task_detail_status_container_height">44dp</dimen>
+    <dimen name="content_min_height">1000dp</dimen>
+
+    <!-- Confirmation dialog -->
+    <dimen name="buttons_divider">3dp</dimen>
+
+    <!-- Toolbar custom dimens -->
+    <dimen name="toolbar_icon_size">24dp</dimen>
+
+    <!-- PhotoDetail custom dimens -->
+    <dimen name="photo_height">300dp</dimen>
+</resources>

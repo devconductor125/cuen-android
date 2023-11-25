@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.ToolbarMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/top_message_bar"
+            style="@style/TopMessageBar"
+            android:layout_alignParentTop="true"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/main_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:layout_below="@+id/top_message_bar"
+            android:elevation="@dimen/dimen_small"
+            app:background_color="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/image_left"
+                style="@style/ToolbarImage"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dimen_tiny"
+                android:onClick="@{viewModel::onLeftIconClick}"
+                app:srcCompat="@drawable/ic_new_game_24dp" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/dimen_medium"
+                android:layout_marginStart="@dimen/dimen_medium"
+                android:layout_toEndOf="@+id/image_left"
+                android:layout_toStartOf="@+id/image_mid_end"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:gravity="start"
+                android:maxLines="2"
+                android:textColor="@color/listBackground"
+                android:textSize="@dimen/text_small"
+                android:textStyle="bold"
+                tools:text="@string/app_name"
+                tools:textColor="@android:color/white" />
+
+            <ImageView
+                android:id="@+id/image_mid_end"
+                style="@style/ToolbarImage"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/image_right_end_container"
+                android:onClick="@{viewModel::onRightMidIconClick}" />
+
+            <RelativeLayout
+                android:id="@+id/image_right_end_container"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true">
+
+                <ImageView
+                    android:id="@+id/image_right_end"
+                    style="@style/ToolbarImage"
+                    android:layout_centerVertical="true"
+                    android:onClick="@{viewModel::onRightEndIconClick}"
+                    app:srcCompat="@drawable/ic_new_game_24dp" />
+
+                <RelativeLayout
+                    android:id="@+id/loading_spinner_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/dimen_medium"
+                    android:visibility="gone">
+
+                    <ProgressBar
+                        android:id="@+id/loading_spinner"
+                        android:layout_width="@dimen/toolbar_icon_size"
+                        android:layout_height="@dimen/toolbar_icon_size"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/dimen_small_s"
+                        android:indeterminateTint="@color/white" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

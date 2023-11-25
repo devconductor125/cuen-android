@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="toolbar_height">48dp</dimen>
+    <dimen name="status_bar_height">24dp</dimen>
+    <dimen name="app_bar_bottom_padding">40dp</dimen>
+    <dimen name="navigation_bar_height">42dp</dimen>
+
+    <!-- Comment dialog dimensions -->
+    <dimen name="feature_comment_height">150dp</dimen>
+</resources>

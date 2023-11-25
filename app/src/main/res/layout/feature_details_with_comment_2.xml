@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.dialogs.viewModel.FeatureDetailsWithCommentDialogMvvm.ViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dialog_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/listBackground"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/dimen_small">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/listBackground"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/selected_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:background="@drawable/right_to_left_gradient"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingEnd="@dimen/dimen_large"
+                android:paddingStart="@dimen/dimen_large"
+                android:paddingTop="@dimen/dimen_medium"
+                android:text="@{viewModel.selectedData}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_small"
+                tools:text="Dato seleccionado: Recorrido" />
+
+            <TextView
+                android:id="@+id/data_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:background="@drawable/right_to_left_gradient"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:gravity="start"
+                android:paddingBottom="@dimen/dimen_medium"
+                android:paddingEnd="@dimen/dimen_large"
+                android:paddingStart="@dimen/dimen_large"
+                android:text="@{viewModel.type}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold"
+                tools:text="Tipo: Cerramiento" />
+
+            <LinearLayout
+                android:id="@+id/details_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{viewModel.feature.isTree ? View.GONE : View.VISIBLE}">
+
+                <TextView
+                    android:id="@+id/material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:paddingEnd="@dimen/dimen_large"
+                    android:paddingStart="@dimen/dimen_large"
+                    android:paddingTop="@dimen/dimen_large_l"
+                    android:text="@string/material"
+                    android:textColor="@color/black_2"
+                    android:textSize="@dimen/text_small"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.hasMaterial ? View.VISIBLE : View.GONE}" />
+
+                <TextView
+                    android:id="@+id/material_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="start"
+                    android:paddingBottom="@dimen/dimen_medium"
+                    android:paddingEnd="@dimen/dimen_large"
+                    android:paddingStart="@dimen/dimen_large"
+                    android:paddingTop="@dimen/dimen_medium"
+                    android:text="@{viewModel.material}"
+                    android:textColor="@color/black_2"
+                    android:textSize="@dimen/text_small" />
+
+                <TextView
+                    android:id="@+id/length"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:paddingBottom="@dimen/dimen_medium"
+                    android:paddingEnd="@dimen/dimen_large"
+                    android:paddingStart="@dimen/dimen_large"
+                    android:paddingTop="@dimen/dimen_medium"
+                    android:text="@string/length"
+                    android:textColor="@color/black_2"
+                    android:textSize="@dimen/text_small"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.hasLength ? View.VISIBLE : View.GONE}" />
+
+                <TextView
+                    android:id="@+id/length_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:paddingBottom="@dimen/dimen_medium"
+                    android:paddingEnd="@dimen/dimen_large"
+                    android:paddingStart="@dimen/dimen_large"
+                    android:text="@{viewModel.length}"
+                    android:textColor="@color/black_2"
+                    android:textSize="@dimen/text_small"
+                    android:visibility="@{viewModel.hasLength ? View.VISIBLE : View.GONE}" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:id="@+id/comment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/text_small"
+                    android:layout_marginStart="@dimen/text_small"
+                    android:layout_marginTop="@dimen/dimen_large_l"
+                    android:background="@drawable/form_text_field_rounded_outline">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/comment_container_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/feature_comment_height"
+                        android:layout_marginTop="@dimen/dimen_large"
+                        android:gravity="top"
+                        android:hint="@string/feature_dialog_title"
+                        android:paddingTop="@dimen/dimen_medium_s"
+                        android:theme="@style/TextLabel">
+
+                        <EditText
+                            android:id="@+id/comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/transparent"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="top"
+                            android:inputType="textMultiLine"
+                            android:maxLines="40"
+                            android:paddingTop="@dimen/dimen_medium_s"
+                            android:scrollbars="vertical"
+                            android:text="@={viewModel.geometryComment.comment}"
+                            android:textColor="@color/formTextFieldTextColor"
+                            android:textSize="@dimen/text_small" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/save_comment_button"
+                    style="@style/FormEndTaskButton"
+                    android:onClick="@{viewModel::onSaveComment}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/save_comment"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

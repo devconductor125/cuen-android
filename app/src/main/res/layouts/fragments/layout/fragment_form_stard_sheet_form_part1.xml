@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.form.stardSheetForm.FormStardSheetFormViewMvvm.ViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/stard_sheet_form"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/stard_sheet_form_title" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/general_data" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.AutoCompleteFormTextField
+                    android:id="@+id/municipality"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/municipality"
+                    app:mandatory="true"
+                    app:value="@={viewModel.stardSheetForm.generalData.municipality}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/property_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/property_name"
+                    app:mandatory="true"
+                    app:value="@={viewModel.stardSheetForm.generalData.propertyName}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/lane"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/lane"
+                    app:value="@={viewModel.stardSheetForm.generalData.lane}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/catastral_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/catastral_number"
+                    app:value="@={viewModel.stardSheetForm.generalData.catastralNumber}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/family_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/family_head"
+                    app:value="@={viewModel.stardSheetForm.generalData.familyHead}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/person_who_attended_the_visit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/person_who_attended_the_visit"
+                    app:value="@={viewModel.stardSheetForm.generalData.personWhoAttendedTheVisit}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/mobile_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/mobile_number"
+                    app:value="@={viewModel.stardSheetForm.generalData.mobileNumber}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/land_line_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/land_line_number"
+                    app:value="@={viewModel.stardSheetForm.generalData.landLineNumber}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/number_households_connect_System"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/number_households_connect_System"
+                    app:value="@={viewModel.stardSheetForm.generalData.numberOfHouseholdsThatWillConnectToTheSystem}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/population_to_be_served"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/population_to_be_served"
+                    app:value="@={viewModel.stardSheetForm.generalData.populationToBeServed}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/basic_information" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/distance_between_stard_and_household"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/distance_between_stard_and_household"
+                    app:value="@={viewModel.stardSheetForm.basicInformation.distanceBetweenStardAndHousehold}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/system_type" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/residential"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardSheetForm.basicInformation.systemType.masonry}"
+                        android:text="@string/residential" />
+
+                    <RadioButton
+                        android:id="@+id/commercial"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardSheetForm.basicInformation.systemType.prefabricated}"
+                        android:text="@string/commercial" />
+
+                </RadioGroup>
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/effluent_disposition" />
+
+                <CheckBox
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.stardSheetForm.basicInformation.hydrologicalSource.thereAHydrologicalSourceCloseToTheHousehold}"
+                    android:onCheckedChanged="@{viewModel::switchHydrologicalSourceCloseToTheHousehold}"
+                    android:text="@string/are_there_any_hydrological_sources_close" />
+
+                <LinearLayout
+                    android:id="@+id/source_fields"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.stardSheetForm.basicInformation.hydrologicalSource.thereAHydrologicalSourceCloseToTheHousehold ? View.VISIBLE : View.GONE}">
+
+                    <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                        android:id="@+id/hydrological_source_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:hint="@string/hydrological_source_name"
+                        app:value="@={viewModel.stardSheetForm.basicInformation.hydrologicalSource.hydrologicalSourceName}" />
+
+                    <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                        android:id="@+id/hydrological_source_distance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:hint="@string/hydrological_source_distance"
+                        app:value="@={viewModel.stardSheetForm.basicInformation.hydrologicalSource.hydrologicalSourceDistance}" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/there_hydrological_source_close_household_fields"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.stardSheetForm.basicInformation.hydrologicalSource.thereAHydrologicalSourceCloseToTheHousehold ? View.GONE : View.VISIBLE}">
+
+                    <TextView
+                        style="@style/FormSubTitleText"
+                        android:text="@string/no_hydrological_source_question" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/soil"
+                            style="@style/FormRadioButton"
+                            android:checked="@={viewModel.stardSheetForm.basicInformation.hydrologicalSource.soil}"
+                            android:text="@string/soil" />
+
+                        <RadioButton
+                            android:id="@+id/other"
+                            style="@style/FormRadioButton"
+                            android:checked="@={viewModel.stardSheetForm.basicInformation.hydrologicalSource.other}"
+                            android:text="@string/other" />
+
+                    </RadioGroup>
+
+                    <CheckBox
+                        android:id="@+id/no_hydrological_source_room_availability_question"
+                        style="@style/FormCheckBox"
+                        android:checked="@={viewModel.stardSheetForm.basicInformation.hydrologicalSource.thereRoomToBuildAndAbsorptionWell}"
+                        android:text="@string/no_hydrological_source_room_availability_question" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onNextStep}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/next_Step"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

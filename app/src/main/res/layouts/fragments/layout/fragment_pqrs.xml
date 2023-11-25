@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.PQRSViewMvvm.ViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/pqrs_form"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:right_end_icon="@drawable/ic_sieeve_brand_imago_white"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical">
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/id_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/id_card_number"
+                    app:value="@={viewModel.pqrs.idNumber}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/contact_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/contact_name"
+                    app:value="@={viewModel.pqrs.contactName}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/contactEmail"
+                    app:value="@={viewModel.pqrs.email}" />
+
+                <CheckBox
+                    android:id="@+id/agreement_corporation"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.pqrs.agreementCorporation}"
+                    android:onCheckedChanged="@{viewModel::switchSubscribeAgreementVisibility}"
+                    android:text="@string/agreement_corporation" />
+
+                <CheckBox
+                    android:id="@+id/subscribe_agreement"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.pqrs.subscribeAgreement}"
+                    android:text="@string/subscribe_agreement"
+                    android:visibility="@{viewModel.pqrs.agreementCorporation ? View.GONE : View.VISIBLE}" />
+
+                <!--<CheckBox // TODO check if this block can be deleted
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.pqrs.createPredioPotencial}"
+                    android:onCheckedChanged="@{viewModel::switchPredioPotencialVisibility}"
+                    android:text="@string/create_predio_potencial" />
+
+                <LinearLayout
+                    android:id="@+id/predio_potencial_fields"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.pqrs.createPredioPotencial ? View.VISIBLE : View.GONE}">
+
+                    <TextView
+                        style="@style/FormSubTitleText"
+                        android:text="@string/geographic_coordinates" />
+
+                    <com.b1gdigital.development.cuencaVerde.presentation.views.widgets.FormTextField
+                        android:id="@+id/latitude"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:editable="false"
+                        app:hint="@string/latitude"
+                        app:value="@={viewModel.pqrs.latitude}" />
+
+                    <com.b1gdigital.development.cuencaVerde.presentation.views.widgets.FormTextField
+                        android:id="@+id/longitude"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:editable="false"
+                        app:hint="@string/longitude"
+                        app:value="@={viewModel.pqrs.longitude}" />
+
+                    <com.b1gdigital.development.cuencaVerde.presentation.views.widgets.FormTextField
+                        android:id="@+id/property_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:hint="@string/property_name"
+                        app:value="@={viewModel.pqrs.propertyName}" />
+
+                </LinearLayout>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimen_large_l">
+
+                    <Button
+                        android:id="@+id/dependency_button"
+                        style="@style/FormButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_medium"
+                        android:onClick="@{viewModel::showDependencyPicker}"
+                        android:text="@string/dependency" />
+
+                    <TextView
+                        android:id="@+id/dependency"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dimen_invisible"
+                        android:layout_marginStart="@dimen/dimen_invisible"
+                        android:gravity="center"
+                        android:text="@{viewModel.pqrs.dependency.title}"
+                        android:visibility="@{viewModel.pqrs.hasDependency ? View.VISIBLE : View.GONE}" />
+
+                    <TextView
+                        android:id="@+id/pqrs_type"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dimen_invisible"
+                        android:layout_marginStart="@dimen/dimen_invisible"
+                        android:gravity="center"
+                        android:text="@{viewModel.pqrs.pqrsType.title}"
+                        android:visibility="@{viewModel.pqrs.hasPqrsType ? View.VISIBLE : View.GONE}" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/comment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/text_small"
+                    android:layout_marginStart="@dimen/text_small"
+                    android:layout_marginTop="@dimen/dimen_large_l"
+                    android:background="@drawable/form_text_field_rounded_outline">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/comment_container_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/comment_height"
+                        android:layout_marginTop="@dimen/dimen_large"
+                        android:gravity="top"
+                        android:hint="@string/description"
+                        android:paddingTop="@dimen/dimen_medium_s"
+                        android:theme="@style/TextLabel">
+
+                        <EditText
+                            android:id="@+id/title"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/transparent"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="top"
+                            android:inputType="textMultiLine"
+                            android:maxLines="40"
+                            android:scrollbars="vertical"
+                            android:text="@={viewModel.pqrs.description}"
+                            android:textColor="@color/formTextFieldTextColor"
+                            android:textSize="@dimen/text_small" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onSendPQRS}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/send_pqrs"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

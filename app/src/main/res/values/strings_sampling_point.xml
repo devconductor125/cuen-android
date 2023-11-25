@@ -1,0 +1,8 @@
+<resources>
+    <string name="related_common_name">Nombre corriente asociado</string>
+    <string name="monitoring_number">Número de monitoreo</string>
+    <string name="point_classification">Clasificación de los puntos</string>
+    <string name="monitoring_component">Componente de monitoreo</string>
+    <string name="monitoring_scale">Escala de monitoreo</string>
+    <string name="sample_id">ID muestra</string>
+</resources>

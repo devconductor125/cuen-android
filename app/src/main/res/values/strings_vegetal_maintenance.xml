@@ -1,0 +1,11 @@
+<resources>
+    <string name="vegetal_maintenance_form">Formato de mantenimiento vegetal</string>
+    <string name="contract_number">Contrato de ejecución</string>
+    <string name="contract_contractor">Contratista</string>
+    <string name="general_info">Información general</string>
+    <string name="executed_actions">Acciones ejecutadas</string>
+    <string name="execution_start_date">Fecha de inicio de ejecución</string>
+    <string name="execution_end_date">Fecha de terminación de ejecución</string>
+    <string name="missing_name">Ingresa el nombre</string>
+    <string name="missing_predio_name">Ingresa el nombre del predio</string>
+</resources>

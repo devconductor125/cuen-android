@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.form.vegetalMaintenance.FormVegetalMaintenanceViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/vegetal_maintenance_form"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/general_info" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/owner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="@{viewModel.vegetalMaintenance.isNew}"
+                    app:hint="@string/owner"
+                    app:value="@={viewModel.vegetalMaintenance.contact.contactName}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/property_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="@{viewModel.vegetalMaintenance.isNew}"
+                    app:hint="@string/property_name"
+                    app:value="@={viewModel.vegetalMaintenance.propertyName}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/lane"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="@{viewModel.vegetalMaintenance.isNew}"
+                    app:hint="@string/lane"
+                    app:value="@={viewModel.vegetalMaintenance.lane}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.AutoCompleteFormTextField
+                    android:id="@+id/municipality"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="@{viewModel.vegetalMaintenance.isNew}"
+                    app:hint="@string/municipality"
+                    app:value="@={viewModel.vegetalMaintenance.municipality}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/contract_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/contract_number"
+                    app:value="@={viewModel.vegetalMaintenance.contractNumber}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/contractor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/contract_contractor"
+                    app:value="@={viewModel.vegetalMaintenance.contractor}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/executed_actions" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/dimen_xlarge">
+
+                    <Button
+                        android:id="@+id/start_date_button"
+                        style="@style/FormButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:onClick="@{viewModel::showExecutionStartDatePicker}"
+                        android:text="@string/execution_start_date" />
+
+                    <TextView
+                        android:id="@+id/start_date"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/start_date_button"
+                        android:layout_marginTop="@dimen/dimen_xlarge"
+                        android:gravity="center"
+                        android:text="@{viewModel.vegetalMaintenance.executionStartDate.string}" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/dimen_xlarge">
+
+                    <Button
+                        android:id="@+id/end_date_button"
+                        style="@style/FormButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:onClick="@{viewModel::showExecutionEndDatePicker}"
+                        android:text="@string/execution_end_date" />
+
+                    <TextView
+                        android:id="@+id/end_date"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/end_date_button"
+                        android:layout_marginTop="@dimen/dimen_xlarge"
+                        android:gravity="center"
+                        android:text="@{viewModel.vegetalMaintenance.executionEndDate.string}" />
+
+                </RelativeLayout>
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onSendParcelable}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/send"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

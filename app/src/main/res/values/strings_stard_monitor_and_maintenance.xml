@@ -1,0 +1,33 @@
+<resources>
+    <string name="stard_form">Formato de manternimiento STARD</string>
+    <string name="request_date">Fecha de solicitud</string>
+    <string name="person_requesting_visit">Persona que solicita visita</string>
+    <string name="access_type">Tipo de accesso</string>
+    <string name="travel_time_from_municipality">Tiempo aprox desde la cabecera minucipal</string>
+    <string name="time_since_last_monitor_maintenance">Tiempo sin hacer mantenimiento</string>
+    <string name="stard_type">Tipo STARD</string>
+    <string name="minutes_5_To_30">5 a 30 Min</string>
+    <string name="minutes_30_To_60">30 a 60 Min</string>
+    <string name="hours_2_To_3">2 a 3 Horas</string>
+    <string name="distance_to_stard">Distancia a STARD</string>
+    <string name="distance_to_grease_trap">Distancia a trampa de grasas</string>
+    <string name="tank_capacity">Capacidad del tanque</string>
+    <string name="liter_1000">1000 L</string>
+    <string name="liter_1500">1500 L</string>
+    <string name="liter_2000">2000 L</string>
+    <string name="liter_2500">2500 L</string>
+    <string name="liter_3000">3000 L</string>
+    <string name="liter_3500">3500 L</string>
+    <string name="liter_4000">4000 L</string>
+    <string name="liter_4500">4500 L</string>
+    <string name="liter_5000">5000 L</string>
+    <string name="discharge_type">Tipo de descarga</string>
+    <string name="absorption_well">Pozo de absorción</string>
+    <string name="infiltration_field">Campo de infiltración</string>
+    <string name="hydrological_source">Fuente hídrica</string>
+    <string name="maintenance_type">Tipo de mantenimiento</string>
+    <string name="preventive">Preventivo</string>
+    <string name="corrective">Correctivo</string>
+    <string name="urgent">Urgente</string>
+    <string name="observations">Observaciones</string>
+</resources>

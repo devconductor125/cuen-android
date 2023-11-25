@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.ActionItemViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_xxxxlarge"
+        android:background="@drawable/list_item_ripple"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{viewModel::onClick}">
+
+        <ImageView
+            android:id="@+id/bullet"
+            android:layout_width="@dimen/dimen_large"
+            android:layout_height="@dimen/dimen_large"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_medium"
+            android:layout_marginStart="@dimen/dimen_xlarge"
+            android:src="@drawable/small_circle"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/item_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/dimen_medium"
+            android:layout_toEndOf="@id/bullet"
+            android:fontFamily="@font/roboto"
+            android:text="@{viewModel.title}"
+            android:textColor="@color/listContentTextColor"
+            android:textSize="@dimen/text_medium"
+            android:textStyle="bold"
+            tools:text="Acción sa sad asd asd dsad" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_divider"
+            android:layout_alignParentBottom="true"
+            android:background="@color/action_item_divider" />
+
+    </RelativeLayout>
+
+</layout>

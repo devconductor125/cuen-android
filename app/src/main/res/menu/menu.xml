@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_map"
+        android:enabled="true"
+        android:icon="@drawable/ic_map_white_24px"
+        android:value="@string/bottom_navigation_left"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_tracks"
+        android:enabled="true"
+        android:icon="@drawable/ic_description_white_24px"
+        android:value="@string/bottom_navigation_mid"
+        app:showAsAction="ifRoom" />
+</menu>

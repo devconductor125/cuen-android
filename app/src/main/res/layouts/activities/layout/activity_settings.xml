@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.SettingsViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/settings"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <RelativeLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolBar"
+            android:background="@color/listBackground">
+
+            <FrameLayout
+                style="@style/FormEndTaskButton"
+                android:layout_alignParentTop="true"
+                android:onClick="@{viewModel::onOfflineSwitchChange}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/offline_mode_download"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_medium" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                style="@style/FormCancelTaskButton"
+                android:layout_alignParentBottom="true"
+                android:onClick="@{viewModel::onLogOut}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/log_out"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_medium" />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

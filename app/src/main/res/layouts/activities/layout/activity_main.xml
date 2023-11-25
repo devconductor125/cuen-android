@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.MainViewMvvm.ViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/main_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.orquitech.development.cuencaVerde.presentation.views.decorators.FloatingActionButtonBehavior">
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/bottom_navigation_2"
+                android:layout_below="@+id/top_message_bar" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                style="@style/BottomNavigation"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone"
+                app:menu="@menu/menu" />
+
+            <LinearLayout
+                android:id="@+id/bottom_navigation_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bottom_bar_height"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/right_to_left_gradient"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bottom_navigation_bar_ripple_white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="@{viewModel::onLeftNavigationButtonClicked}">
+
+                    <ImageView
+                        android:id="@+id/bottom_navigation_left_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginTop="@dimen/dimen_medium"
+                        app:srcCompat="@drawable/ic_folder" />
+
+                    <TextView
+                        android:id="@+id/bottom_navigation_left_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:layout_marginBottom="@dimen/dimen_small"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/projects"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_smaller" />
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="@dimen/dimen_smaller"
+                    android:layout_height="match_parent"
+                    android:background="@color/white" />
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bottom_navigation_bar_ripple_white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="@{viewModel::onMidNavigationButtonClicked}">
+
+                    <ImageView
+                        android:id="@+id/bottom_navigation_mid_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginTop="@dimen/dimen_medium"
+                        app:srcCompat="@drawable/ic_calendar" />
+
+                    <TextView
+                        android:id="@+id/bottom_navigation_mid_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:layout_marginBottom="@dimen/dimen_small"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/tasks"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_smaller" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/pqrs_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="@dimen/dimen_smaller"
+                        android:layout_height="match_parent"
+                        android:background="@color/white" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bottom_navigation_bar_ripple_white"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{viewModel::onRightNavigationButtonClicked}">
+
+                        <ImageView
+                            android:id="@+id/bottom_navigation_right_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|top"
+                            android:layout_marginTop="@dimen/dimen_medium"
+                            app:srcCompat="@drawable/ic_pqrs" />
+
+                        <TextView
+                            android:id="@+id/bottom_navigation_right_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|bottom"
+                            android:layout_marginBottom="@dimen/dimen_small"
+                            android:fontFamily="@font/roboto"
+                            android:text="@string/prqs"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_smaller" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

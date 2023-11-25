@@ -1,0 +1,7 @@
+<resources>
+    <string name="activity">Actividad</string>
+    <string name="hillside">Ladera</string>
+    <string name="riverbank">Ribera</string>
+    <string name="scientific_name">Nombre científico</string>
+    <string name="common_name">Nombre común</string>
+</resources>

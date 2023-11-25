@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.orquitech.development.cuencaVerde">
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:name="com.orquitech.development.cuencaVerde.CuencaVerdeApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBY3c7RFvwzs06juEg0nzIU7PVERTIV3U8" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.orquitech.development.cuencaVerde.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+
+        </provider>
+
+        <activity
+            android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.MainActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.TasksActivity" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.map.MapPredioPotencialActivity" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.form.SurveyActivityForm" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.form.VegetalMaintenanceActivityForm" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.form.StardMonitorAndMaintenanceActivityForm" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.form.PredioFollowUpActivityForm" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.TaskDetailActivity" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.form.CartaIntencionActivityForm" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.SettingsActivity" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.form.StardSheetFormActivityForm" />
+
+        <activity
+            android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.map.MapTaskActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.map.MapContractSiembraActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.map.MapExecutionActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.map.MapMonitorAndMaintenanceActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.map.MapPsaActivity"
+            android:launchMode="singleTask" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.form.MaintenanceControlFormActivityForm" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.PredioPotencialActivity" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.PrediosActivity" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.form.ContractorActivityForm" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.SiembraDetailListActivity" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.form.SiembraDetailActivityForm" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.map.MapHydrologicalMonitoringProcessActivity" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.SamplingPointListActivity" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.ErosiveProcessFormListActivity" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.form.SamplingPointActivityForm" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.form.ErosiveProcessActivityForm" />
+
+        <activity
+            android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.PhotographyRegistryActivity"
+            android:theme="@style/AppTheme.SingleTouch" />
+
+        <activity android:name="com.orquitech.development.cuencaVerde.presentation.views.activities.form.MeetingsWithActorsActivityForm" />
+
+        <service android:name="com.orquitech.development.cuencaVerde.logic.services.UserLocationService" />
+
+        <meta-data
+            android:name="net.hockeyapp.android.appIdentifier"
+            android:value="${HOCKEYAPP_APP_ID}" />
+    </application>
+
+</manifest>

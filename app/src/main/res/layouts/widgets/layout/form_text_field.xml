@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.FormTextFieldMvvm.ViewModel" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/form_field_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/form_text_field_height"
+        android:layout_marginEnd="@dimen/dimen_large_l"
+        android:layout_marginStart="@dimen/dimen_large_l"
+        android:layout_marginTop="@dimen/dimen_large_l"
+        android:background="@drawable/form_text_field_rounded_outline">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_field_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_large"
+            android:hint="@{viewModel.hint}"
+            android:theme="@style/TextLabel"
+            app:hintTextAppearance="@style/TextLabelHint">
+
+            <EditText
+                android:id="@+id/text_field"
+                style="@style/FormTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.value}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </FrameLayout>
+
+</layout>

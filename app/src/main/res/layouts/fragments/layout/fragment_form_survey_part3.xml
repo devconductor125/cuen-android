@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.form.survey.FormSurveyViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/form"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:right_end_icon="@drawable/ic_sieeve_brand_imago_white"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/property_legal_status" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/tenant_status"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.propertyLegalStatus.tenantStatus}"
+                        android:text="@string/tenant_status" />
+
+                    <RadioButton
+                        android:id="@+id/possession"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.propertyLegalStatus.possession}"
+                        android:text="@string/possession" />
+
+                    <RadioButton
+                        android:id="@+id/succession"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.propertyLegalStatus.succession}"
+                        android:text="@string/succession" />
+
+                </RadioGroup>
+
+                <FrameLayout
+                    android:id="@+id/comment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text"
+                    android:layout_marginEnd="@dimen/text_small"
+                    android:layout_marginStart="@dimen/text_small"
+                    android:layout_marginTop="@dimen/dimen_large_l"
+                    android:background="@drawable/form_text_field_rounded_outline">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/comment_container_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/comment_height"
+                        android:layout_marginTop="@dimen/dimen_large"
+                        android:gravity="top"
+                        android:hint="@string/comments"
+                        android:paddingTop="@dimen/dimen_medium_s"
+                        android:theme="@style/TextLabel">
+
+                        <EditText
+                            android:id="@+id/comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/transparent"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="top"
+                            android:inputType="textMultiLine"
+                            android:maxLines="40"
+                            android:scrollbars="vertical"
+                            android:text="@={viewModel.survey.propertyLegalStatus.comments}"
+                            android:textColor="@color/formTextFieldTextColor"
+                            android:textSize="@dimen/text_small" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/natural_ecosystems_in_the_property" />
+
+                <CheckBox
+                    android:id="@+id/riverbank_forest"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.naturalEcosystemsInTheProperty.riverbankForest}"
+                    android:onClick="@{viewModel::refreshView}"
+                    android:text="@string/riverbank_forest" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/riverbank_forest_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.survey.naturalEcosystemsInTheProperty.riverbankForest ? View.VISIBLE : View.GONE}"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/score"
+                    app:value="@={viewModel.survey.naturalEcosystemsInTheProperty.riverbankForestScore}" />
+
+
+                <CheckBox
+                    android:id="@+id/riverbank_area"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.naturalEcosystemsInTheProperty.riverbankArea}"
+                    android:onClick="@{viewModel::refreshView}"
+                    android:text="@string/riverbank_area" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/riverbank_area_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    android:visibility="@{viewModel.survey.naturalEcosystemsInTheProperty.riverbankArea ? View.VISIBLE : View.GONE}"
+                    app:hint="@string/score"
+                    app:value="@={viewModel.survey.naturalEcosystemsInTheProperty.riverbankAreaScore}" />
+
+                <CheckBox
+                    android:id="@+id/mountainside_forest"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.naturalEcosystemsInTheProperty.mountainsideForest}"
+                    android:onClick="@{viewModel::refreshView}"
+                    android:text="@string/mountainside_forest" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/mountainside_forest_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.survey.naturalEcosystemsInTheProperty.mountainsideForest ? View.VISIBLE : View.GONE}"
+                    app:hint="@string/score"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:value="@={viewModel.survey.naturalEcosystemsInTheProperty.mountainsideForestScore}" />
+
+                <CheckBox
+                    android:id="@+id/spring"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.naturalEcosystemsInTheProperty.spring}"
+                    android:onClick="@{viewModel::refreshView}"
+                    android:text="@string/spring" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/spring_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.survey.naturalEcosystemsInTheProperty.spring ? View.VISIBLE : View.GONE}"
+                    app:hint="@string/score"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:value="@={viewModel.survey.naturalEcosystemsInTheProperty.springScore}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/water_source_status" />
+
+                <CheckBox
+                    android:id="@+id/protected_source"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.naturalEcosystemsInTheProperty.protectedSource}"
+                    android:onClick="@{viewModel::refreshView}"
+                    android:text="@string/protected_source" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/protected_source_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.survey.naturalEcosystemsInTheProperty.protectedSource ? View.VISIBLE : View.GONE}"
+                    app:hint="@string/comments"
+                    app:value="@={viewModel.survey.naturalEcosystemsInTheProperty.protectedSourceComments}" >
+
+
+                </com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField>
+
+                <CheckBox
+                    android:id="@+id/unprotected"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.naturalEcosystemsInTheProperty.unProtected}"
+                    android:onClick="@{viewModel::refreshView}"
+                    android:text="@string/unprotected" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/unprotected_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.survey.naturalEcosystemsInTheProperty.unProtected ? View.VISIBLE : View.GONE}"
+                    app:hint="@string/comments"
+                    app:value="@={viewModel.survey.naturalEcosystemsInTheProperty.unProtectedComments}" />
+
+                <CheckBox
+                    android:id="@+id/contaminated_comments"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.naturalEcosystemsInTheProperty.contaminated}"
+                    android:onClick="@{viewModel::refreshView}"
+                    android:text="@string/contaminated" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/contaminated"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.survey.naturalEcosystemsInTheProperty.contaminated ? View.VISIBLE : View.GONE}"
+                    app:hint="@string/comments"
+                    app:value="@={viewModel.survey.naturalEcosystemsInTheProperty.contaminatedComments}" />
+
+                <CheckBox
+                    android:id="@+id/erosion"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.naturalEcosystemsInTheProperty.erosion}"
+                    android:onClick="@{viewModel::refreshView}"
+                    android:text="@string/erosion" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/erosion_comments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.survey.naturalEcosystemsInTheProperty.erosion ? View.VISIBLE : View.GONE}"
+                    app:hint="@string/comments"
+                    app:value="@={viewModel.survey.naturalEcosystemsInTheProperty.erosionComments}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/strategic_importance_of_the_property" />
+
+                <CheckBox
+                    android:id="@+id/ecological_connectivity"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.strategicImportanceOfTheProperty.ecologicalConnectivity}"
+                    android:text="@string/ecological_connectivity" />
+
+                <CheckBox
+                    android:id="@+id/water_quality_improvement"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.strategicImportanceOfTheProperty.waterQualityImprovement}"
+                    android:text="@string/water_quality_improvement" />
+
+                <CheckBox
+                    android:id="@+id/supply_source"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.strategicImportanceOfTheProperty.supplySource}"
+                    android:text="@string/supply_source" />
+
+                <CheckBox
+                    android:id="@+id/productive_water_source"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.strategicImportanceOfTheProperty.productiveWaterSource}"
+                    android:text="@string/productive_water_source" />
+
+                <CheckBox
+                    android:id="@+id/water_regulation"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.strategicImportanceOfTheProperty.waterRegulation}"
+                    android:text="@string/water_regulation" />
+
+                <CheckBox
+                    android:id="@+id/biodiversity_conservation"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.strategicImportanceOfTheProperty.biodiversityConservation}"
+                    android:text="@string/biodiversity_conservation" />
+
+                <CheckBox
+                    android:id="@+id/sequestered_carbon"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.strategicImportanceOfTheProperty.sequesteredCarbon}"
+                    android:text="@string/sequestered_carbon" />
+
+                <CheckBox
+                    android:id="@+id/high_degree_of_conservation_forest"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.strategicImportanceOfTheProperty.highDegreeOfConservationForest}"
+                    android:text="@string/high_degree_of_conservation_forest" />
+
+                <CheckBox
+                    android:id="@+id/carbon_bonds_sale_certification"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.strategicImportanceOfTheProperty.carbonBondsSaleCertification}"
+                    android:text="@string/carbon_bonds_sale_certification" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/psa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/psa"
+                    app:value="@={viewModel.survey.strategicImportanceOfTheProperty.psa}" />
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onNextStep}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/next_Step"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

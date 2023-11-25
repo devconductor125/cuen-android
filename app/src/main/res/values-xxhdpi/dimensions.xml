@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Functional dimensions -->
+
+    <!-- LogIn view Functional dimensions -->
+    <dimen name="imago_size">112dp</dimen>
+    <dimen name="logo_name_height">56dp</dimen>
+    <dimen name="imago_bottom_margin_top">28dp</dimen>
+    <dimen name="logo_name_margin_top">20dp</dimen>
+    <dimen name="small_logo_background_height">74dp</dimen>
+    <dimen name="imago_top_top_margin">44dp</dimen>
+    <dimen name="imago_bottom_top">90dp</dimen>
+    <dimen name="imago_bottom_margin">44dp</dimen>
+
+    <!-- Dashboard header view Functional dimensions -->
+    <dimen name="dashboard_progress_bar_dimension">120dp</dimen>
+    <dimen name="dashboard_progress_bar_number_text_size">23sp</dimen>
+</resources>

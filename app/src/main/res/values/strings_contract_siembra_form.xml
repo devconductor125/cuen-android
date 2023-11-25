@@ -1,0 +1,5 @@
+<resources>
+    <string name="contract_siembra_form">Formato contratistas</string>
+    <string name="siembra_detail">Detalle de siembras</string>
+    <string name="new_siembra_detail">Crear detalle de siembras</string>
+</resources>

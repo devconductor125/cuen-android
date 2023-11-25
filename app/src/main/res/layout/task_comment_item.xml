@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.TaskCommentItemViewMvvm.ViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list_item_ripple"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_medium"
+            android:fontFamily="@font/roboto"
+            android:text="@{viewModel.content}"
+            android:textColor="@color/listContentTextColor"
+            android:textSize="@dimen/text_medium"
+            tools:text="Acción sa sad asd asd dsad" />
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_medium"
+            android:fontFamily="@font/roboto"
+            android:text="@{viewModel.author}"
+            android:textColor="@color/listContentTextColor"
+            android:textSize="@dimen/text_smaller"
+            android:textStyle="bold"
+            tools:text="Acción sa sad asd asd dsad" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_divider"
+            android:background="@color/action_item_divider" />
+
+    </LinearLayout>
+
+</layout>

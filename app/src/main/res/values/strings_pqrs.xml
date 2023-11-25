@@ -1,0 +1,17 @@
+<resources>
+    <string name="pqrs_form">Formulario de PQRS</string>
+    <string name="agreement_corporation">Tiene algún acuerdo de conservación con la corporación?</string>
+    <string name="subscribe_agreement">Está interesado en suscribir un acuerdo con la corporación?</string>
+    <string name="create_predio_potencial">Quieres crear un predio potencial?</string>
+    <string name="dependency">Dependencia</string>
+    <string name="pqr_type">Tipo de PQR</string>
+    <string name="success">Envío exitoso</string>
+    <string name="pqrs_missing_id_numer">Ingresa el número de documento</string>
+    <string name="description">Descripción</string>
+    <string name="pqrs_missing_dependency">Selecciona la dependencia</string>
+    <string name="pqrs_missing_pqrs_type">Selecciona el tipo de petición</string>
+    <string name="pqrs_missing_description">Ingresa la descripción</string>
+    <string name="send_pqrs">Enviar PQRS</string>
+    <string name="pqrs_missing_name">Ingresa el nombre de contacto</string>
+    <string name="invalid_email_address">Ingresa un email válido</string>
+</resources>

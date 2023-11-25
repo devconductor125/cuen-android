@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.dialogs.viewModel.MapMonitorMaintenanceCommentDialogMvvm.ViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dialog_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/listBackground"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/dimen_small">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:background="@drawable/right_to_left_gradient"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dimen_large_l"
+                android:paddingTop="@dimen/dimen_large_l"
+                android:text="@string/monitor_maintenance_dialog_title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_large"
+                android:textStyle="bold" />
+
+            <FrameLayout
+                android:id="@+id/comment_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text"
+                android:layout_marginEnd="@dimen/text_small"
+                android:layout_marginStart="@dimen/text_small"
+                android:layout_marginTop="@dimen/dimen_large_l"
+                android:background="@drawable/form_text_field_rounded_outline">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/comment_container_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/comment_height"
+                    android:layout_marginTop="@dimen/dimen_large"
+                    android:gravity="top"
+                    android:hint="@string/comment_dialog_title"
+                    android:paddingTop="@dimen/dimen_medium_s"
+                    android:theme="@style/TextLabel">
+
+                    <EditText
+                        android:id="@+id/comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/transparent"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="top"
+                        android:inputType="textMultiLine"
+                        android:maxLines="40"
+                        android:scrollbars="vertical"
+                        android:text="@={viewModel.comment}"
+                        android:textColor="@color/formTextFieldTextColor"
+                        android:textSize="@dimen/text_small" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/images_list"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/images_list_height"
+                android:layout_below="@+id/comment_container"
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:visibility="gone"
+                tools:listitem="@layout/add_photo_item" />
+
+            <FrameLayout
+                android:id="@+id/photographic_registry"
+                style="@style/FormNextStepButton"
+                android:layout_below="@+id/comment_container"
+                android:layout_marginTop="@dimen/dimen_large_l"
+                android:onClick="@{viewModel::onPhotographyRegistry}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/photos_registry"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_medium" />
+
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/yes"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_xxlarge"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/photographic_registry"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/dimen_medium"
+                android:background="@drawable/positive_button"
+                android:clickable="true"
+                android:elevation="@dimen/dimen_medium"
+                android:focusable="true"
+                android:onClick="@{viewModel::saveMonitorAndMaintenanceComment}"
+                android:text="@string/save"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_small" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

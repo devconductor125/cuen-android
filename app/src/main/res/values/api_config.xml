@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- api.croquis.com -->
+    <string name="croquis_api_url">https://hidden-gorge-97519.herokuapp.com</string>
+
+    <!-- api.cuencaverde.com -->
+    <string name="cuenca_verde_api_url">https://appbe.cuencaverde.org/</string>
+    <string name="cuenca_verde_images_url">https://appbe.cuencaverde.org/</string>
+<!--    <string name="cuenca_verde_api_url">http://10.10.10.153:8000/</string>-->
+
+    <string name="cuenca_verde_api_client_id">2</string>
+    <!--<string name="cuenca_verde_api_client_secret">vdaA7AhIFbCHUVCmC75Jjmv0CQ1jxpJzhpcEdKpi</string>-->
+    <string name="cuenca_verde_api_client_secret">NaITfOLcYDpkeJ1jZkHN9tVG2XtV4J4phCM96eKB</string>
+    <string name="cuenca_verde_api_client_grant_type">password</string>
+
+    <!-- endpoints -->
+    <string name="auth_endpoint">oauth/token</string>
+    <string name="procedures_endpoint">process/api</string>
+    <string name="get_tasks_endpoint">tasks/process/api</string>
+    <string name="get_task_comments_endpoint">commentsbyTask</string>
+    <string name="programs_endpoint">generals/programs</string>
+    <string name="get_all_tasks">tasks/api</string>
+    <string name="predio_potencial_endpoint">potential/property</string>
+    <string name="due_tasks_endpoint">api/activeTaskList</string>
+    <string name="send_survey_carta_endpoint">potential/property/info</string>
+    <string name="quota_endpoint">generals/total/quote</string>
+    <string name="survey_endpoint">maps/property/consult/potential/api</string>
+    <string name="send_files_endpoint">maps/loadFiles</string>
+    <string name="send_communications_images_endpoint">generals/taskOpen/insertDocument</string>
+    <string name="send_minuta_endpoint">generals/loadFiles</string>
+    <string name="send_form_images_by_hash_endpoint">generals/filesFor/Forms</string>
+    <string name="users_endpoint">generals/admin/user</string>
+    <string name="acciones_endpoint">generals/actions</string>
+    <string name="materials_endpoint">generals/materials</string>
+    <string name="monitoring_maintenance_endpoint">monitoring</string>
+    <string name="monitoring_maintenance_files_endpoint">monitoring/file/point/img/send</string>
+    <string name="form_endpoint">monitoring/form</string>
+    <string name="contractor_form_endpoint">monitoring/forma</string>
+    <string name="carta_intencion_endpoint">generals/letter/intention</string>
+    <string name="stard_monitor_and_maintenance_form_endpoint">monitoring/report/stard</string>
+    <string name="images_url">files/images</string>
+    <string name="pqrs_endpoint">pqrs</string>
+    <string name="roles_endpoint">pqrs/dependencie</string>
+    <string name="pqrs_types_endpoint">type/pqrs</string>
+    <string name="one_signal_endpoint">generals/playerId</string>
+    <string name="provinces_endpoint">generals/departaments</string>
+    <string name="municipalities_endpoint">generals/municipality</string>
+    <string name="predios_potenciales_endpoint">generals/property/consult/potential</string>
+    <string name="survey_carta_endpoint">potential/specific/info</string>
+    <string name="croquis_endpoint">generals/sketchPotentialProperty</string>
+    <string name="predios_management_layer">temporal</string>
+    <string name="contract_siembra_endpoint">contractor/getGeoMap</string>
+    <string name="get_execution_tasks_endpoint">execution/process</string>
+    <string name="get_all_execution_tasks">execution</string>
+    <string name="send_contractor_format_endpoint">contractor/contractorFormat</string>
+    <string name="send_contractor_siembras_format_endpoint">contractor/contractorSowing</string>
+    <string name="open_task_with_forms_endpoint">generals/formTaskOpen</string>
+    <string name="end_contractor_task">contractor/taskOpen/nextSubtype</string>
+    <string name="send_meeting_with_actors_format_endpoint">generals/formComunication</string>
+    <string name="end_communications_task">generals/taskOpen/nextSubtype</string>
+    <string name="end_psa_task">generals/taskOpen/nextSubtype</string>
+    <string name="user_role_endpoint">role</string>
+    <string name="croquis_from_coordinates_endpoint">croquis/containingLocation</string>
+    <string name="open_task_comment">generals/addComments</string>
+    <string name="end_monitoring">monitoring/asigmentCreator</string>
+
+    <string name="geo_json_endpoint">maps/task/geojson</string>
+    <string name="geo_json_open_task_endpoint">generals/taskOpen/GeoMap</string>
+    <string name="execution_base_geo_json_endpoint">execution/getMap</string>
+    <string name="end_execution_task">execution/next/flow</string>
+
+    <string name="get_all_open_tasks">generals/task/open</string>
+    <string name="get_open_tasks_endpoint">tasks/process/api/open</string>
+    <string name="get_all_open_contractor_tasks">contractor/task/open</string>
+    <string name="get_open_tasks_contractor_endpoint">contractor/task/process/open</string>
+
+    <string name="send_execution_map_endpoint">execution/GeoMap</string>
+    <string name="send_validation_map">maps/task/geojson</string>
+    <string name="send_map_endpoint">maps/task/by/guard/basin/geojson</string>
+    <string name="end_measurement_task">maps/union/next/task</string>
+    <string name="end_task_no_map">approved</string>
+</resources>

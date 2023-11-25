@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.map.MapTaskViewMvvm.ViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.orquitech.development.cuencaVerde.presentation.views.decorators.FloatingActionButtonBehavior">
+
+            <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/dimen_smaller"
+                app:background_drawable="@drawable/right_to_left_gradient"
+                app:custom_title="@{viewModel.task.title}"
+                app:right_end_icon="@drawable/ic_layers_black_24dp"
+                app:start_icon="@drawable/ic_arrow_back_white_24px"
+                app:text_color="@android:color/white" />
+
+            <TextView
+                android:id="@+id/accuracy_message"
+                style="@style/TopMessageBar"
+                android:layout_below="@+id/toolBar"
+                android:background="@color/buttonForeground"
+                android:elevation="@dimen/dimen_invisible"
+                android:textColor="@color/activityBackground"
+                android:visibility="gone" />
+
+            <FrameLayout
+                android:id="@+id/map_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/accuracy_message"
+                android:visibility="invisible">
+
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/toolBar" />
+
+            <RelativeLayout
+                android:id="@+id/measurement_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/off_measurement_buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_large_l">
+
+                    <com.getbase.floatingactionbutton.FloatingActionsMenu
+                        android:id="@+id/custom_fab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="@dimen/dimen_invisible"
+                        android:layout_marginEnd="@dimen/dimen_small"
+                        fab:fab_addButtonColorNormal="@color/white"
+                        fab:fab_addButtonPlusIconColor="@color/colorPrimary"
+                        fab:fab_labelStyle="@style/menu_labels_style">
+
+                        <com.getbase.floatingactionbutton.FloatingActionButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{viewModel::onNewTree}"
+                            app:fab_icon="@drawable/ic_assignment_white_24dp"
+                            fab:fab_colorNormal="@color/white"
+                            fab:fab_size="mini"
+                            fab:fab_title="@string/add_tree" />
+
+                        <com.getbase.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/onFormButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{viewModel::onForm}"
+                            android:visibility="gone"
+                            app:fab_icon="@drawable/ic_assignment_white_24dp"
+                            fab:fab_colorNormal="@color/white"
+                            fab:fab_size="mini"
+                            fab:fab_title="@string/stard_sheet_form" />
+
+                        <com.getbase.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/action_a"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{viewModel::initDataCapture}"
+                            app:fab_icon="@drawable/ic_add_location_blue_24px"
+                            fab:fab_colorNormal="@color/white"
+                            fab:fab_size="mini"
+                            fab:fab_title="@string/data_capture" />
+
+                        <com.getbase.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/action_b"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{viewModel::addCommentMarker}"
+                            app:fab_icon="@drawable/ic_insert_comment_black_24dp"
+                            fab:fab_colorNormal="@color/white"
+                            fab:fab_size="mini"
+                            fab:fab_title="@string/point_comment" />
+
+                    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:id="@+id/send_map_button"
+                    style="@style/FormEndTaskButton"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:paddingEnd="@dimen/dimen_large_l"
+                        android:paddingStart="@dimen/dimen_large_l"
+                        android:text="@string/send_map"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:id="@+id/on_measurement_fab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/on_measurement_buttons">
+
+                    <com.getbase.floatingactionbutton.FloatingActionsMenu
+                        android:id="@+id/custom_fab_measurement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="@dimen/dimen_invisible"
+                        android:layout_marginEnd="@dimen/dimen_small"
+                        fab:fab_addButtonColorNormal="@color/white"
+                        fab:fab_addButtonPlusIconColor="@color/colorPrimary"
+                        fab:fab_labelStyle="@style/menu_labels_style">
+
+                        <com.getbase.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/on_tree_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{viewModel::onNewTree}"
+                            app:fab_icon="@drawable/ic_assignment_white_24dp"
+                            fab:fab_colorNormal="@color/white"
+                            fab:fab_size="mini"
+                            fab:fab_title="@string/add_tree" />
+
+                        <com.getbase.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/action_point"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{viewModel::initPointDataCapture}"
+                            app:fab_icon="@drawable/ic_add_location_blue_24px"
+                            fab:fab_colorNormal="@color/white"
+                            fab:fab_size="mini"
+                            fab:fab_title="@string/data_capture" />
+
+                        <com.getbase.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/action_comment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{viewModel::addCommentMarker}"
+                            app:fab_icon="@drawable/ic_insert_comment_black_24dp"
+                            fab:fab_colorNormal="@color/white"
+                            fab:fab_size="mini"
+                            fab:fab_title="@string/point_comment" />
+
+                    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/on_measurement_buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/end_measurement_button"
+                        style="@style/FormEndTaskButton"
+                        android:layout_width="match_parent"
+                        android:layout_marginEnd="@dimen/dimen_medium_s"
+                        android:layout_weight="1"
+                        android:onClick="@{viewModel::stopMeasurement}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/roboto"
+                            android:paddingEnd="@dimen/dimen_large_l"
+                            android:paddingStart="@dimen/dimen_large_l"
+                            android:text="@string/end"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_medium" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/pause_measurement_button"
+                        style="@style/FormNextStepButton"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="@dimen/dimen_medium_s"
+                        android:layout_weight="1"
+                        android:onClick="@{viewModel::pauseMeasurement}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/roboto"
+                            android:paddingEnd="@dimen/dimen_large_l"
+                            android:paddingStart="@dimen/dimen_large_l"
+                            android:text="@string/pause"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_medium" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/on_measurement_buttons_pause"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/end_measurement_button_2"
+                        style="@style/FormEndTaskButton"
+                        android:layout_width="match_parent"
+                        android:layout_marginEnd="@dimen/dimen_medium_s"
+                        android:layout_weight="1"
+                        android:onClick="@{viewModel::stopMeasurement}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/roboto"
+                            android:paddingEnd="@dimen/dimen_large_l"
+                            android:paddingStart="@dimen/dimen_large_l"
+                            android:text="@string/end"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_medium" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/resume_measurement_button"
+                        style="@style/FormNextStepButton"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="@dimen/dimen_medium_s"
+                        android:layout_weight="1"
+                        android:onClick="@{viewModel::resumeMeasurement}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/roboto"
+                            android:paddingEnd="@dimen/dimen_large_l"
+                            android:paddingStart="@dimen/dimen_large_l"
+                            android:text="@string/resume"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_smaller" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/hydrological_ui"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dimen_large_l"
+                android:visibility="gone">
+
+                <com.getbase.floatingactionbutton.FloatingActionsMenu
+                    android:id="@+id/custom_fab_hydro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="@dimen/dimen_invisible"
+                    android:layout_marginEnd="@dimen/dimen_small"
+                    fab:fab_addButtonColorNormal="@color/white"
+                    fab:fab_addButtonPlusIconColor="@color/colorPrimary"
+                    fab:fab_labelStyle="@style/menu_labels_style">
+
+                    <com.getbase.floatingactionbutton.FloatingActionButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewModel::onNewHydrologicalMonitoringPoint}"
+                        app:fab_icon="@drawable/ic_assignment_white_24dp"
+                        fab:fab_colorNormal="@color/white"
+                        fab:fab_size="mini"
+                        fab:fab_title="@string/add_sampling_point" />
+
+                </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/cat_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/accuracy_message"
+                android:clickable="true"
+                android:clipToPadding="false"
+                android:focusable="true"
+                android:padding="@dimen/dimen_large_l"
+                android:visibility="invisible">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/cat_dialog_height"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:elevation="@dimen/dimen_large_l"
+                    app:cardCornerRadius="@dimen/dimen_small">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/cat"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/cat_dialog_height"
+                            android:scaleType="centerCrop" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="center"
+                            android:padding="@dimen/dimen_large_l"
+                            android:text="@string/accuracy_cat_message"
+                            android:textColor="@color/listContentSubTextColor"
+                            android:textSize="@dimen/text_smaller" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

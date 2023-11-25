@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.MonitorAndMaintenancePhotoItemViewMvvm.ViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="@dimen/images_list_height"
+        android:layout_height="@dimen/images_list_height"
+        android:layout_marginStart="@dimen/dimen_small_s"
+        android:padding="@dimen/dimen_small">
+
+        <androidx.cardview.widget.CardView
+            style="@style/AppCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardElevation="@dimen/dimen_invisible">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:imageBitmap="@{viewModel.image}" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="@drawable/card_gradient_ripple_white_foreground" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.imageName}"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                tools:text="1234.jpg" />
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+</layout>

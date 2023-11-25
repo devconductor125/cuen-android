@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/white"
+    android:exitFadeDuration="@android:integer/config_shortAnimTime">
+    <!-- Ripple Shape -->
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+    <!-- Background -->
+    <item>
+        <shape android:shape="rectangle" >
+            <gradient
+                android:angle="0"
+                android:endColor="#0073D1"
+                android:startColor="#03B2E8"
+                android:type="linear" />
+        </shape>
+    </item>
+</ripple>

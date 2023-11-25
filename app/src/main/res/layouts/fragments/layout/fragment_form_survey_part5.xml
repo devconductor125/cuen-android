@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.form.survey.FormSurveyViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/toolbar_height"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/form"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:right_end_icon="@drawable/ic_sieeve_brand_imago_white"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/economic_activity_in_the_property" />
+
+                <CheckBox
+                    android:id="@+id/dairy_cattle"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.economicActivityInTheProperty.dairyCattle}"
+                    android:text="@string/dairy_cattle" />
+
+                <CheckBox
+                    android:id="@+id/dual_purpose_cattle"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.economicActivityInTheProperty.dualPurposeCattle}"
+                    android:text="@string/dual_purpose_cattle" />
+
+                <CheckBox
+                    android:id="@+id/agriculture"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.economicActivityInTheProperty.agriculture}"
+                    android:text="@string/agriculture" />
+
+                <CheckBox
+                    android:id="@+id/poultry_farming"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.economicActivityInTheProperty.poultryFarming}"
+                    android:text="@string/poultry_farming" />
+
+                <CheckBox
+                    android:id="@+id/porcine_farming"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.economicActivityInTheProperty.porcineFarming}"
+                    android:text="@string/porcine_farming" />
+
+                <CheckBox
+                    android:id="@+id/commercial"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.economicActivityInTheProperty.commercial}"
+                    android:text="@string/commercial" />
+
+                <CheckBox
+                    android:id="@+id/recreational"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.economicActivityInTheProperty.recreational}"
+                    android:text="@string/recreational" />
+
+                <CheckBox
+                    android:id="@+id/good_practices_certification"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.economicActivityInTheProperty.goodPracticesCertification}"
+                    android:text="@string/good_practices_certification" />
+
+                <CheckBox
+                    android:id="@+id/self_consumption"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.economicActivityInTheProperty.selfConsumption}"
+                    android:text="@string/self_consumption" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/tillage_methods" />
+
+                <CheckBox
+                    android:id="@+id/machining"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.economicActivityInTheProperty.machining}"
+                    android:text="@string/machining" />
+
+                <CheckBox
+                    android:id="@+id/handwork"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.economicActivityInTheProperty.handwork}"
+                    android:text="@string/handwork" />
+
+                <CheckBox
+                    android:id="@+id/chemical"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.economicActivityInTheProperty.chemical}"
+                    android:text="@string/chemical" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/propertyOther"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/propertyOther"
+                    app:value="@={viewModel.survey.economicActivityInTheProperty.other}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/property_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/property_area"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:value="@={viewModel.survey.economicActivityInTheProperty.propertyArea}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/production_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/production_area"
+                    app:value="@={viewModel.survey.economicActivityInTheProperty.productionArea}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/geographic_coordinates" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/latitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="false"
+                    app:hint="@string/latitude"
+                    app:value="@={viewModel.survey.economicActivityInTheProperty.latitude}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/longitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="false"
+                    app:hint="@string/longitude"
+                    app:value="@={viewModel.survey.economicActivityInTheProperty.longitude}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/basic_needs" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/ways_of_access_to_hydrological_source" />
+
+                <CheckBox
+                    android:id="@+id/municipal_acueduct"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.hydrologicalSource.municipalAqueduct}"
+                    android:text="@string/municipal_acueduct" />
+
+                <CheckBox
+                    android:id="@+id/spring"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.hydrologicalSource.spring}"
+                    android:text="@string/spring" />
+
+                <CheckBox
+                    android:id="@+id/rain_water"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.hydrologicalSource.rainWater}"
+                    android:text="@string/rain_water" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/hydrological_source_other_which"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="true"
+                    app:hint="@string/other_which"
+                    app:value="@={viewModel.survey.basicNeeds.hydrologicalSource.other}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/ways_of_access_to_electricity_source" />
+
+                <CheckBox
+                    android:id="@+id/network"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.electricitySource.network}"
+                    android:text="@string/network" />
+
+                <CheckBox
+                    android:id="@+id/station"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.electricitySource.station}"
+                    android:text="@string/station" />
+
+                <CheckBox
+                    android:id="@+id/solar_energy"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.electricitySource.solarEnergy}"
+                    android:text="@string/solar_energy" />
+
+                <CheckBox
+                    android:id="@+id/candles"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.electricitySource.candles}"
+                    android:text="@string/candles" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/electricity_source_other_which"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="true"
+                    app:hint="@string/other_which"
+                    app:value="@={viewModel.survey.basicNeeds.electricitySource.other}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/cooking_methods" />
+
+                <CheckBox
+                    android:id="@+id/natural_gas"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.cookingMethods.naturalGas}"
+                    android:text="@string/natural_gas" />
+
+                <CheckBox
+                    android:id="@+id/gas_bottle"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.cookingMethods.gasBottle}"
+                    android:text="@string/gas_bottle" />
+
+                <CheckBox
+                    android:id="@+id/electricity"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.cookingMethods.electricity}"
+                    android:text="@string/electricity" />
+
+                <CheckBox
+                    android:id="@+id/biodigester"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.cookingMethods.biodigester}"
+                    android:text="@string/biodigester" />
+
+                <CheckBox
+                    android:id="@+id/firewood"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.cookingMethods.firewood}"
+                    android:text="@string/firewood" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/cooking_methods_other_which"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="true"
+                    app:hint="@string/other_which"
+                    app:value="@={viewModel.survey.basicNeeds.cookingMethods.other}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/basic_sanitation_methods" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/stard_household"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="true"
+                    app:hint="@string/stard_household"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:value="@={viewModel.survey.basicNeeds.basicSanitationMethods.stardHousehold}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/no_stard_household"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="true"
+                    app:hint="@string/no_stard_household"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:value="@={viewModel.survey.basicNeeds.basicSanitationMethods.noStardHousehold}" />
+
+                <CheckBox
+                    android:id="@+id/stard_corrective_maintenance"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.basicSanitationMethods.stardCorrectiveMaintenance}"
+                    android:text="@string/stard_corrective_maintenance" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/stard_corrective_maintenance_quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="true"
+                    app:hint="@string/how_many"
+                    app:value="@={viewModel.survey.basicNeeds.basicSanitationMethods.stardCorrectiveMaintenanceQuantity}" />
+
+                <CheckBox
+                    android:id="@+id/stard_preventive_maintenance"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.basicNeeds.basicSanitationMethods.stardPreventiveMaintenance}"
+                    android:text="@string/stard_preventive_maintenance" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/stard_preventive_maintenance_quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="true"
+                    app:hint="@string/how_many"
+                    app:value="@={viewModel.survey.basicNeeds.basicSanitationMethods.stardPreventiveMaintenanceQuantity}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/shedding_quantity_and_location" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/water_source"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.sheddingCharacteristics.sheddingLocation.hydrologicalSource}"
+                        android:text="@string/water_source" />
+
+                    <RadioButton
+                        android:id="@+id/soil"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.sheddingCharacteristics.sheddingLocation.soil}"
+                        android:text="@string/soil" />
+
+                    <RadioButton
+                        android:id="@+id/municipal_aqueduct"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.sheddingCharacteristics.sheddingLocation.municipalAqueduct}"
+                        android:text="@string/municipal_aqueduct" />
+
+                    <RadioButton
+                        android:id="@+id/spring_shedding"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.sheddingCharacteristics.sheddingLocation.spring}"
+                        android:text="@string/spring" />
+
+                </RadioGroup>
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/shedding_licence" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/shedding_license_yes"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.sheddingCharacteristics.sheddingLicence.yes}"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:id="@+id/shedding_license_no"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.sheddingCharacteristics.sheddingLicence.no}"
+                        android:text="@string/no" />
+
+                    <RadioButton
+                        android:id="@+id/shedding_license_in_process"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.sheddingCharacteristics.sheddingLicence.inProcess}"
+                        android:text="@string/in_process" />
+
+                </RadioGroup>
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/water_concession" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/water_concession_yes"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.sheddingCharacteristics.waterConcession.yes}"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:id="@+id/water_concession_no"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.sheddingCharacteristics.waterConcession.no}"
+                        android:text="@string/no" />
+
+                    <RadioButton
+                        android:id="@+id/water_concession_in_process"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.sheddingCharacteristics.waterConcession.inProcess}"
+                        android:text="@string/in_process" />
+
+                </RadioGroup>
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onNextStep}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/next_Step"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

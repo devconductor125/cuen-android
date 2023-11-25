@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.form.survey.FormSurveyViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/form"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:right_end_icon="@drawable/ic_sieeve_brand_imago_white"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/socioeconomic_information" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/socioeconomic_layer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/socioeconomic_layer"
+                    app:value="@={viewModel.survey.socioEconomicInformation.socioeconomicLayer}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/number_of_family_groups"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/number_of_family_groups"
+                    app:value="@={viewModel.survey.socioEconomicInformation.numberOfFamilyGroups}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/housing_units"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/housing_units"
+                    app:value="@={viewModel.survey.socioEconomicInformation.housingUnits}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/impacted_housing_units"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/impacted_housing_units"
+                    app:value="@={viewModel.survey.socioEconomicInformation.impactedHousingUnits}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/impacted_people"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/impacted_people"
+                    app:value="@={viewModel.survey.socioEconomicInformation.impactedPeople}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/women"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/women"
+                    app:value="@={viewModel.survey.socioEconomicInformation.women}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/men"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/men"
+                    app:value="@={viewModel.survey.socioEconomicInformation.men}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/children"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/children"
+                    app:value="@={viewModel.survey.socioEconomicInformation.children}" />
+
+                <CheckBox
+                    android:id="@+id/sisben"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.socioEconomicInformation.sisben}"
+                    android:text="@string/sisben" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/sisben_level"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/sisben_level"
+                    app:value="@={viewModel.survey.socioEconomicInformation.sisbenLevel}" />
+
+                <CheckBox
+                    android:id="@+id/family_compensation_fund"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.socioEconomicInformation.familyCompensationFund}"
+                    android:text="@string/family_compensation_fund" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/family_compensation_fund_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/family_compensation_fund_name"
+                    app:value="@={viewModel.survey.socioEconomicInformation.familyCompensationFundName}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/why_has_or_hasnt_family_compensation_fund"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/why_has_or_hasnt_family_compensation_fund"
+                    app:value="@={viewModel.survey.socioEconomicInformation.whyHasHasntFamilyCompensationFund}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/head_of_household" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/propertyReservoirRioGrande"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.familyInformation.manHousehold}"
+                        android:text="@string/man_household" />
+
+                    <RadioButton
+                        android:id="@+id/propertyReservoirLaFe"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.survey.familyInformation.womanHousehold}"
+                        android:text="@string/woman_household" />
+
+                </RadioGroup>
+
+                <CheckBox
+                    android:id="@+id/victimizedPopulation"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.familyInformation.victimizedPopulation}"
+                    android:text="@string/victimized_population" />
+
+                <CheckBox
+                    android:id="@+id/registered"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.familyInformation.registered}"
+                    android:text="@string/is_registered" />
+
+                <CheckBox
+                    android:id="@+id/disability_in_family_member"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.familyInformation.disabilityInFamilyMember}"
+                    android:onClick="@{viewModel::refreshView}"
+                    android:text="@string/disability_in_family_member" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_large_l"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.survey.familyInformation.disabilityInFamilyMember ? View.VISIBLE : View.GONE}">
+
+                    <TextView
+                        style="@style/FormSubTitleText"
+                        android:text="@string/which_disability" />
+
+                    <CheckBox
+                        android:id="@+id/cognitive_disability"
+                        style="@style/FormCheckBox"
+                        android:checked="@={viewModel.survey.familyInformation.cognitiveDisability}"
+                        android:text="@string/cognitive_disability" />
+
+                    <CheckBox
+                        android:id="@+id/motor_disability"
+                        style="@style/FormCheckBox"
+                        android:checked="@={viewModel.survey.familyInformation.motorDisability}"
+                        android:text="@string/motor_disability" />
+
+                    <CheckBox
+                        android:id="@+id/visual_disability"
+                        style="@style/FormCheckBox"
+                        android:checked="@={viewModel.survey.familyInformation.visualDisability}"
+                        android:text="@string/visual_disability" />
+
+                    <CheckBox
+                        android:id="@+id/auditive_disability"
+                        style="@style/FormCheckBox"
+                        android:checked="@={viewModel.survey.familyInformation.auditiveDisability}"
+                        android:text="@string/auditive_disability" />
+
+                    <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                        android:id="@+id/other_disability"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:hint="@string/other_disability"
+                        app:value="@={viewModel.survey.familyInformation.otherDisability}" />
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/ways_of_access" />
+
+                <CheckBox
+                    android:id="@+id/primary_road"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.waysOfAccess.primaryRoad}"
+                    android:text="@string/primary_road" />
+
+                <CheckBox
+                    android:id="@+id/secondary_road"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.waysOfAccess.secondaryRoad}"
+                    android:text="@string/secondary_road" />
+
+                <CheckBox
+                    android:id="@+id/third_class_road"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.waysOfAccess.thirdClassRoad}"
+                    android:text="@string/third_class_road" />
+
+                <CheckBox
+                    android:id="@+id/unpaved_road"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.waysOfAccess.unpavedRoad}"
+                    android:text="@string/unpaved_road" />
+
+                <CheckBox
+                    android:id="@+id/can_be_reached_by_car"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.waysOfAccess.canBeReachedByCar}"
+                    android:text="@string/can_be_reached_by_car" />
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onNextStep}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/next_Step"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

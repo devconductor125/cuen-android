@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.form.meetingsWithActorsActivityForm.FormMeetingsWithActorsFormViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/meetings_with_actors"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FormTitleText"
+                    android:text="@string/meetings_with_actors"
+                    tools:text="Encuesta predio" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/basin" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/la_fe"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.meetingsWithActorsForm.laFe}"
+                        android:text="@string/la_fe" />
+
+                    <RadioButton
+                        android:id="@+id/rio_grande"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.meetingsWithActorsForm.rioGrande}"
+                        android:text="@string/rio_grande" />
+
+                </RadioGroup>
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.AutoCompleteFormTextField
+                    android:id="@+id/municipality"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/municipality"
+                    app:value="@={viewModel.meetingsWithActorsForm.municipality}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.AutoCompleteFormTextField
+                    android:id="@+id/lane"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/lane"
+                    app:value="@={viewModel.meetingsWithActorsForm.lane}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/target_group" />
+
+                <CheckBox
+                    android:id="@+id/kids"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.meetingsWithActorsForm.kids}"
+                    android:text="@string/kids" />
+
+                <CheckBox
+                    android:id="@+id/students_kids"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.meetingsWithActorsForm.studentKids}"
+                    android:text="@string/students_kids" />
+
+                <CheckBox
+                    android:id="@+id/teenagers"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.meetingsWithActorsForm.teenagers}"
+                    android:text="@string/teenagers" />
+
+                <CheckBox
+                    android:id="@+id/adults"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.meetingsWithActorsForm.adults}"
+                    android:text="@string/adults" />
+
+                <CheckBox
+                    android:id="@+id/students_adults"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.meetingsWithActorsForm.studentAdults}"
+                    android:text="@string/students_adults" />
+
+                <CheckBox
+                    android:id="@+id/seniors"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.meetingsWithActorsForm.seniors}"
+                    android:text="@string/seniors" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/dimen_xlarge">
+
+                    <Button
+                        android:id="@+id/event_date_button"
+                        style="@style/FormButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:onClick="@{viewModel::showDatePicker}"
+                        android:text="@string/event_date" />
+
+                    <TextView
+                        android:id="@+id/event_date"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/event_date_button"
+                        android:layout_alignTop="@+id/event_date_button"
+                        android:layout_marginTop="@dimen/dimen_invisible"
+                        android:layout_toEndOf="@+id/event_date_button"
+                        android:text="@{viewModel.meetingsWithActorsForm.eventDate.string}" />
+
+                </RelativeLayout>
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/assistants"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/assistants_number"
+                    app:mandatory="true"
+                    app:value="@={viewModel.meetingsWithActorsForm.assistants}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/trees_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/trees_number"
+                    app:mandatory="true"
+                    app:value="@={viewModel.meetingsWithActorsForm.trees}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/experience_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/experience_type"
+                    app:mandatory="true"
+                    app:value="@={viewModel.meetingsWithActorsForm.experienceType}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/experience_type" />
+
+                <CheckBox
+                    android:id="@+id/workshop"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.meetingsWithActorsForm.workshop}"
+                    android:text="@string/workshop" />
+
+                <CheckBox
+                    android:id="@+id/sowing"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.meetingsWithActorsForm.sowing}"
+                    android:text="@string/sowing" />
+
+                <CheckBox
+                    android:id="@+id/experience"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.meetingsWithActorsForm.experience}"
+                    android:text="@string/experience" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/event_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/event_name"
+                    app:mandatory="true"
+                    app:value="@={viewModel.meetingsWithActorsForm.eventDescription}" />
+
+                <CheckBox
+                    android:id="@+id/assistance_list"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.meetingsWithActorsForm.assistanceList}"
+                    android:text="@string/assistance_list" />
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onSaveParcelable}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/save"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

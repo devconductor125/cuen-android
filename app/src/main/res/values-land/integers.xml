@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="span_buttons">3</integer>
+    <integer name="span_saved_games">3</integer>
+    <integer name="span_list_items">1</integer>
+    <integer name="span_photos_list_items">3</integer>
+</resources>

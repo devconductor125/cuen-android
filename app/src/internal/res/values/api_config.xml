@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- api.cuencaverde.com -->
+    <string name="cuenca_verde_api_url">http://192.168.147.214:8000/:i:/s/cuencaverde.org/EUuky5rvx21CnwXw3LV6C34BUYfIYvh9NP5uEp8QzoN4PQ?e=XBvJDP
+</string>
+    <string name="cuenca_verde_images_url">https://appbe.cuencaverde.org</string>
+    <string name="cuenca_verde_api_client_id">2</string>
+<!--    <string name="cuenca_verde_api_client_secret">vdaA7AhIFbCHUVCmC75Jjmv0CQ1jxpJzhpcEdKpi</string>-->
+    <string name="cuenca_verde_api_client_secret">NaITfOLcYDpkeJ1jZkHN9tVG2XtV4J4phCM96eKB</string>
+
+    <string name="cuenca_verde_api_client_grant_type">password</string>
+</resources>

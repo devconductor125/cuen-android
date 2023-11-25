@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.TaskItemViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/task_item_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_gradient_ripple_transparent"
+        android:onClick="@{viewModel::onClick}">
+
+        <TextView
+            android:id="@+id/task_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/task_sub_title"
+            android:layout_marginTop="@dimen/dimen_large"
+            android:layout_toStartOf="@+id/arrow_container"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="@{viewModel.taskType}"
+            android:textColor="@color/listContentSubTextColor"
+            android:textSize="@dimen/text_medium"
+            android:textStyle="bold"
+            tools:text="la hacienda el roble rojo tomate" />
+
+        <TextView
+            android:id="@+id/task_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/task_title"
+            android:layout_marginStart="@dimen/dimen_large"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto"
+            android:maxLines="1"
+            android:text="@{viewModel.title}"
+            android:textColor="@color/listContentSubTitleColor"
+            android:textSize="@dimen/text_small"
+            tools:text="Coordinación de recursos hídricos" />
+
+        <RelativeLayout
+            android:id="@+id/arrow_container"
+            android:layout_width="@dimen/dimen_xxlarge"
+            android:layout_height="@dimen/dimen_xxlarge"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_large"
+            android:background="@drawable/arrow_circular_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{viewModel::onClick}">
+
+            <ImageView
+                android:id="@+id/arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dimen_small"
+                android:background="@drawable/ic_keyboard_arrow_right_black_24px"
+                android:tint="@color/black_2" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_smaller"
+            android:layout_below="@+id/task_sub_title"
+            android:layout_marginEnd="@dimen/dimen_large"
+            android:layout_marginTop="@dimen/dimen_large"
+            android:layout_marginStart="@dimen/dimen_large"
+            android:background="@color/task_item_divider" />
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.PhotoDetailViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/right_to_left_gradient"
+            android:elevation="@dimen/toolbar_elevation"
+            app:navigationIcon="?attr/homeAsUpIndicator" />
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/comment_container"
+            android:layout_below="@+id/main_toolbar"
+            android:scaleType="centerCrop"
+            android:transitionName="photo"
+            app:cuenca_photo="@{viewModel.photographicRegistry.uri}" />
+
+        <FrameLayout
+            android:id="@+id/comment_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/save_comment_button"
+            android:layout_marginEnd="@dimen/text_small"
+            android:layout_marginStart="@dimen/text_small"
+            android:layout_marginTop="@dimen/dimen_large_l"
+            android:background="@drawable/form_text_field_rounded_outline">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/comment_container_input"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/comment_height"
+                android:layout_marginTop="@dimen/dimen_large"
+                android:gravity="top"
+                android:hint="@string/photo_dialog_title"
+                android:paddingTop="@dimen/dimen_medium_s"
+                android:theme="@style/TextLabel">
+
+                <EditText
+                    android:id="@+id/comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:maxLines="40"
+                    android:scrollbars="vertical"
+                    android:text="@={viewModel.photographicRegistry.comment}"
+                    android:textColor="@color/formTextFieldTextColor"
+                    android:textSize="@dimen/text_small" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/save_comment_button"
+            style="@style/FormEndTaskButton"
+            android:layout_alignParentBottom="true"
+            android:onClick="@{viewModel::onSavePhotoComment}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto"
+                android:text="@string/save_comment"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_medium" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</layout>

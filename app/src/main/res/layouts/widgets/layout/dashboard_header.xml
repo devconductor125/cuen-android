@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.DashBoardHeaderMvvm.ViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/right_to_left_gradient"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/main_backdrop"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_layout_backdrop_dimension"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:layout_marginTop="@dimen/app_bar_layout_backdrop_dimension"
+            app:srcCompat="@drawable/ic_sieeve_brand_imago_white" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/CollapsingToolbarTitleWhite"
+            android:layout_width="match_parent"
+            android:text="@string/dashboard" />
+
+        <LinearLayout
+            android:id="@+id/quota_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/CollapsingToolbarSubTitleWhite"
+                android:layout_width="match_parent"
+                android:text="@string/monthly_target" />
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/CollapsingToolbarSubTitleWhite"
+                android:layout_width="match_parent"
+                android:text="@string/potential_properties" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_medium_s">
+
+                <TextView
+                    android:id="@+id/progress_bar_value"
+                    style="@style/ProgressNumberWhite"
+                    android:layout_gravity="center"
+                    android:paddingTop="@dimen/dimen_large" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarBackground"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="@dimen/dashboard_progress_bar_dimension"
+                    android:layout_height="@dimen/dashboard_progress_bar_dimension"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimen_medium"
+                    android:max="100"
+                    android:progress="100"
+                    android:progressDrawable="@drawable/progress_bar_background" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="@dimen/dashboard_progress_bar_dimension"
+                    android:layout_height="@dimen/dashboard_progress_bar_dimension"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimen_medium"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/progress_bar"
+                    android:rotation="270" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/dimen_large">
+
+            <FrameLayout
+                android:id="@+id/create_predio_button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/action_button_2_height"
+                android:layout_marginEnd="@dimen/dimen_small"
+                android:layout_marginStart="@dimen/dimen_large"
+                android:layout_weight="1"
+                android:background="@drawable/button_white_square_outline"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{viewModel::onCreatePredioPotencialClick}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/add_property"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_small" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/predios_button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/action_button_2_height"
+                android:layout_marginStart="@dimen/dimen_small"
+                android:layout_weight="1"
+                android:background="@drawable/button_white_square_outline"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{viewModel::onPrediosClick}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/potential_predios"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_small" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:clipToPadding="false">
+
+                <RelativeLayout
+                    android:id="@+id/back_arrow"
+                    style="@style/CollapsingToolbarDark"
+                    android:layout_width="@dimen/settings_button_size"
+                    android:layout_height="@dimen/settings_button_size"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/dimen_invisible"
+                    android:onClick="@{viewModel::onSettingsClick}">
+
+                    <ImageView
+                        style="@style/CollapsingToolbarIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_medium_s"
+                        android:src="@drawable/ic_settings_black_24dp"
+                        android:tint="@color/white" />
+
+                </RelativeLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

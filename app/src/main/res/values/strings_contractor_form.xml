@@ -1,0 +1,20 @@
+<resources>
+    <string name="workforce_type">Mano de obra empleada</string>
+    <string name="professional">Profesional</string>
+    <string name="technological">Tecnólogo</string>
+    <string name="technical">Técnico</string>
+    <string name="unqualified">No calificada</string>
+    <string name="start_date">Fecha inicio</string>
+    <string name="report_date">Fecha reporte</string>
+    <string name="completion_date">Fecha terminación</string>
+    <string name="barbed_wire">Alambre púa - metros lineales utilizados</string>
+    <string name="plain_wire">Alambre liso - metros lineales utilizados</string>
+    <string name="wood_arms">Estacones</string>
+    <string name="seedlings">Plántulas</string>
+    <string name="sowing_date">Fecha de siembra</string>
+    <string name="maintenance_date">Fecha mantenimiento</string>
+    <string name="efficient_stoves">Estufas eficientes</string>
+    <string name="stards_number">Stard - número</string>
+    <string name="sprues_number">Bebederos - número</string>
+    <string name="water_tanks_number">Tanques de agua - número</string>
+</resources>

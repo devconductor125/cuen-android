@@ -1,0 +1,15 @@
+<resources>
+    <string name="sampling_point_detail">Formato monitoreo de fuentes hídricas</string>
+    <string name="new_sampling_point_detail">Crear formato de muestreo</string>
+    <string name="hour">Hora</string>
+    <string name="phUOfPH">pH (u.de.pH)</string>
+    <string name="water_temperature">Temp. del Agua (°C)</string>
+    <string name="od">OD (mg/L)</string>
+    <string name="sat_od">%Sat OD</string>
+    <string name="conductivity">Conductividad (µS/cm)</string>
+    <string name="sdt">SDT (mg/L)</string>
+    <string name="room_temperature">Temp. Ambiente (°C)</string>
+    <string name="turbidity">Turbiedad (NTU)</string>
+    <string name="redox_potential">Potencial Redox (mV)</string>
+    <string name="altitude">Altitud</string>
+</resources>

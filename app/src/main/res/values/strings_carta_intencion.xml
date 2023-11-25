@@ -1,0 +1,30 @@
+<resources>
+    <string name="carta_intencion_form">Carta de intencion</string>
+    <string name="carta_intencion_form_title">Formato carta de intención</string>
+    <string name="margins">Márgenes</string>
+    <string name="extension">Extensión</string>
+    <string name="conservation_stategies">Estrategias de conservación en el predio</string>
+    <string name="hill_side_forest">Bosque de ladera</string>
+    <string name="river_bank_forest">Bosque de ribera</string>
+    <string name="origins_forest">Bosque de nacimientos</string>
+    <string name="deforestation_prevention">Prevención de la deforestación</string>
+    <string name="sustainable_cattle_raising_and_good_practices">Ganadería sostenible y buenas prácticas</string>
+    <string name="integral_basic_sanitation">Saneamiento básico integral</string>
+    <string name="insulation">Aislamiento</string>
+    <string name="seedlings_insulation">Aislamiento con plántulas</string>
+    <string name="establishment">Establecimiento</string>
+    <string name="enrichment">Enriquecimiento</string>
+    <string name="efficient_stove">Estufa eficiente</string>
+    <string name="orchard_firewood">Huerto leñero</string>
+    <string name="cattle_pass">Paso de ganado</string>
+    <string name="saver_sprue">Bebedero ahorrador</string>
+    <string name="water_tank">Tanque de almacenamiento de agua</string>
+    <string name="sparse_trees">Arboles dispersos</string>
+    <string name="electric_fence">Cercos vivos</string>
+    <string name="stard_maintenance">Mantenimiento STARD</string>
+    <string name="stard_installation">Suministro e instalación de STARD</string>
+    <string name="no_info_error">Ingresa toda la información</string>
+    <string name="registry_number">Matrícula inmobiliaria número</string>
+    <string name="embalse">Embalse</string>
+    <string name="carta_program">Programas de</string>
+</resources>

@@ -1,0 +1,386 @@
+<resources>
+    <!-- Base theme -->
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+        <item name="android:windowAnimationStyle">@style/Animations.Activity</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <!-- Application theme 1 -->
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/cellForeground</item>
+        <item name="cellForeground">@color/cellForeground</item>
+        <item name="cellShadow">@color/cellShadow</item>
+        <item name="buttonTextColor">@color/buttonTextColor</item>
+        <item name="buttonShadow">@color/colorPrimaryDark</item>
+        <item name="activityBackground">@color/activityBackground</item>
+        <item name="boardBackground">@color/statusBarColor</item>
+        <item name="buttonContainerBackground">@color/buttonContainerBackground</item>
+        <item name="buttonForegroundInactive">@color/colorAccent</item>
+        <item name="buttonForeground">@color/colorPrimary</item>
+        <item name="buttonShadowInactive">@color/buttonShadowInactive</item>
+        <item name="toolbar">@color/colorPrimary</item>
+        <item name="toolbarIconFill">@color/toolbarIconFill</item>
+        <item name="constantCellForeground">@color/constantCellForeground</item>
+        <item name="constantCellShadow">@color/constantCellShadow</item>
+        <item name="constantCellTextColor">@color/colorPrimary</item>
+        <item name="statusBarColor">@color/statusBarColor</item>
+    </style>
+
+    <style name="AppTheme.SingleTouch" parent="AppTheme">
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:splitMotionEvents">false</item>
+    </style>
+
+    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@color/toolbarTitleColor</item>
+    </style>
+
+    <style name="AppTheme.Toolbar.Title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">@color/listBackground</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ToolbarImage" parent="Widget.AppCompat.Light.ActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="CollapsingToolbar">
+        <item name="android:layout_width">@dimen/dimen_xxlarge</item>
+        <item name="android:layout_height">@dimen/dimen_xxlarge</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_large</item>
+        <item name="android:layout_marginStart">@dimen/dimen_large</item>
+        <item name="android:background">@drawable/arrow_circular_ripple_white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="CollapsingToolbarIcon">
+        <item name="android:layout_width">@dimen/tool_bar_icon</item>
+        <item name="android:layout_height">@dimen/tool_bar_icon</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="CollapsingToolbarDark" parent="CollapsingToolbar">
+        <item name="android:background">@drawable/arrow_circular_ripple</item>
+    </style>
+
+    <style name="BottomNavigation">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+        <item name="itemBackground">@drawable/accent_ripple</item>
+        <item name="android:elevation">@dimen/dimen_small</item>
+        <item name="itemIconTint">@drawable/menu_selector</item>
+        <item name="itemTextColor">@drawable/menu_selector</item>
+    </style>
+
+    <style name="TextInputErrorAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/formTextFieldTextColor</item>
+        <item name="android:textSize">@dimen/text_tiny</item>
+    </style>
+
+    <style name="TextInputErrorAppearanceWhite" parent="TextInputErrorAppearance">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingStart">@dimen/dimen_large</item>
+    </style>
+
+    <style name="ActionSmallCardButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/view_more_button_height</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_smaller</item>
+        <item name="android:textColor">@color/lightGrey</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Animations.Activity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_from_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/scale_back</item>
+        <item name="android:activityCloseEnterAnimation">@anim/scale_front</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_to_right</item>
+    </style>
+
+    <style name="TextLabel" parent="Widget.Design.TextInputLayout">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/formTextFieldTextColor</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_xlarge</item>
+        <item name="android:layout_marginStart">@dimen/dimen_xlarge</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/formTextFieldTextColor</item>
+        <item name="colorControlNormal">@color/formTextFieldTextColor</item>
+        <item name="colorControlActivated">@color/formTextFieldTextColor</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="errorTextAppearance">@style/TextInputErrorAppearance</item>
+    </style>
+
+    <style name="TextLabelHint" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/formTextFieldTextColor</item>
+    </style>
+
+    <style name="TextLabelHintError" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="TextLabelWhite" parent="TextLabel">
+        <item name="android:textColorHint">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="errorTextAppearance">@style/TextInputErrorAppearanceWhite</item>
+    </style>
+
+    <style name="FormTextFieldContainer">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:maxLength">40</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="FormText">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:maxLength">40</item>
+        <item name="android:textColor">@color/formTextFieldTextColor</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:inputType">text</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginStart">@dimen/dimen_xlarge</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_xlarge</item>
+        <item name="android:layout_marginTop">@dimen/dimen_large</item>
+    </style>
+
+    <style name="FormTextField">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:maxLength">200</item>
+        <item name="android:textColor">@color/formTextFieldTextColor</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:inputType">text</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="FormTextFieldError">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:maxLength">40</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:inputType">text</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTextField">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:maxLength">40</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="DatePicker" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="FormButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textColor">@color/formTextFieldTextColor</item>
+        <item name="android:background">@drawable/form_button_ripple</item>
+        <item name="android:paddingStart">@dimen/dimen_large</item>
+        <item name="android:paddingEnd">@dimen/dimen_large</item>
+    </style>
+
+    <style name="FormCheckBox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/formTextFieldTextColor</item>
+        <item name="android:buttonTint">@color/formTextFieldTextColor</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:layout_marginStart">@dimen/dimen_xlarge</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_xlarge</item>
+        <item name="android:layout_marginTop">@dimen/dimen_large</item>
+    </style>
+
+    <style name="FormRadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:buttonTint">@color/formTextFieldTextColor</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/formTextFieldTextColor</item>
+        <item name="android:layout_marginStart">@dimen/dimen_xlarge</item>
+        <item name="android:layout_marginTop">@dimen/dimen_large</item>
+    </style>
+
+    <style name="SurveyProgressBarButton">
+        <item name="android:layout_width">@dimen/dimen_large_l</item>
+        <item name="android:layout_height">@dimen/dimen_large_l</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="SurveyProgressBarButtonClickable">
+        <item name="android:layout_width">@dimen/dimen_invisible</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">@drawable/form_progress_bar_ripple</item>
+    </style>
+
+    <style name="CollapsingToolbarTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_margin">@dimen/app_bar_layout_backdrop_margin_bottom</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/toolbarTitleColor</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CollapsingToolbarTitleAlternate">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textColor">@color/toolbarTitleColor</item>
+    </style>
+
+    <style name="CollapsingToolbarTitleWhite" parent="CollapsingToolbarTitle">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ProgressNumberWhite" parent="CollapsingToolbarTitleWhite">
+        <item name="android:textSize">@dimen/dashboard_progress_bar_number_text_size</item>
+    </style>
+
+    <style name="CollapsingToolbarSubTitleWhite" parent="CollapsingToolbarTitleWhite">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:layout_margin">@dimen/dimen_invisible</item>
+    </style>
+
+    <style name="FormTitleText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/dimen_large_l</item>
+        <item name="android:paddingEnd">@dimen/dimen_large_l</item>
+        <item name="android:background">@color/listContentTextColor</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:paddingTop">@dimen/dimen_large</item>
+        <item name="android:paddingBottom">@dimen/dimen_large</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="FormSubTitleText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/dimen_large_l</item>
+        <item name="android:paddingEnd">@dimen/dimen_large_l</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:textColor">@color/listContentSubTextColor</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">@dimen/dimen_xlarge</item>
+    </style>
+
+    <style name="SettingsSwitchText" parent="FormSubTitleText">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="FormQuestionText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/question_title_height</item>
+        <item name="android:paddingStart">@dimen/dimen_large_l</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:textColor">@color/formTextQuestionColor</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_marginTop">@dimen/dimen_large</item>
+    </style>
+
+    <style name="FormNextStepButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/action_button_height</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_large_l</item>
+        <item name="android:layout_marginStart">@dimen/dimen_large_l</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_large_l</item>
+        <item name="android:layout_marginTop">@dimen/dimen_xlarge</item>
+        <item name="android:background">@drawable/rounded_corners_form_next_button</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="FormEndTaskButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/action_button_height</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_large_l</item>
+        <item name="android:layout_marginStart">@dimen/dimen_large_l</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_large_l</item>
+        <item name="android:layout_marginTop">@dimen/dimen_xlarge</item>
+        <item name="android:background">@drawable/rounded_corners_form_next_button_green</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="FormCancelTaskButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/action_button_height</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_large_l</item>
+        <item name="android:layout_marginStart">@dimen/dimen_large_l</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_large_l</item>
+        <item name="android:layout_marginTop">@dimen/dimen_xlarge</item>
+        <item name="android:background">@drawable/rounded_corners_form_next_button</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="AppCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+        <item name="cardCornerRadius">@dimen/dimen_medium</item>
+        <item name="cardElevation">@dimen/dimen_small_s</item>
+    </style>
+
+    <style name="TopMessageBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/status_bar_height</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:paddingStart">@dimen/dimen_medium</item>
+        <item name="android:paddingEnd">@dimen/dimen_medium</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:elevation">@dimen/dimen_small</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_smaller</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="menu_labels_style">
+        <item name="android:background">@drawable/fab_label_background</item>
+        <item name="android:textColor">@color/listContentSubTextColor</item>
+    </style>
+</resources>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="meetings_with_actors">Encuentros con actores</string>
+    <string name="kids">Niños</string>
+    <string name="students_kids">Estudiantes-Niños</string>
+    <string name="teenagers">Jovenes</string>
+    <string name="adults">Adultos</string>
+    <string name="students_adults">Estudiantes-Adultos</string>
+    <string name="seniors">Tercera edad</string>
+    <string name="target_group">Grupo objetivo</string>
+    <string name="event_date">Fecha</string>
+    <string name="contributor">Aportante</string>
+    <string name="assistants_number">Número de asistentes</string>
+    <string name="trees_number">Número de árboles</string>
+    <string name="experience_type">Tipo de experiencia</string>
+    <string name="experience_type_consolidated">Consolidado tipo experiencia</string>
+    <string name="socialization">Socialización</string>
+    <string name="experience">Experiencia Ambiental</string>
+    <string name="workshop">Taller</string>
+    <string name="sowing">Siembra</string>
+    <string name="training">Entrenamiento</string>
+    <string name="event_name">Descripción del evento</string>
+    <string name="assistance_list">Lista de asistencia</string>
+</resources>

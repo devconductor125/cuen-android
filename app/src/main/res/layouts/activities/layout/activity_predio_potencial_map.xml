@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.MapPredioPotencialViewMvvm.ViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.orquitech.development.cuencaVerde.presentation.views.decorators.FloatingActionButtonBehavior">
+
+            <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/dimen_smaller"
+                app:background_drawable="@drawable/right_to_left_gradient"
+                app:custom_title="@string/predio_creation"
+                app:right_end_icon="@drawable/ic_layers_black_24dp"
+                app:start_icon="@drawable/ic_arrow_back_white_24px"
+                app:text_color="@android:color/white" />
+
+            <FrameLayout
+                android:id="@+id/map_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/toolBar"
+                android:visibility="invisible">
+
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/toolBar" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/property_name"
+                android:layout_alignEnd="@+id/property_name"
+                android:layout_alignStart="@+id/property_name"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/form_text_field_height"
+                    android:layout_marginEnd="@dimen/dimen_medium_s"
+                    android:layout_marginStart="@dimen/dimen_large_l"
+                    android:layout_marginTop="@dimen/dimen_large_l"
+                    android:layout_weight="1"
+                    android:background="@drawable/form_text_field_rounded_outline">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/latitude_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_large"
+                        android:hint="@string/latitude"
+                        android:theme="@style/TextLabel"
+                        app:hintTextAppearance="@style/TextLabelHint">
+
+                        <EditText
+                            android:id="@+id/latitude"
+                            style="@style/FormTextField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_small"
+                            android:enabled="false"
+                            android:text="@{viewModel.latitude}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/form_text_field_height"
+                    android:layout_marginEnd="@dimen/dimen_large_l"
+                    android:layout_marginStart="@dimen/dimen_medium_s"
+                    android:layout_marginTop="@dimen/dimen_large_l"
+                    android:layout_weight="1"
+                    android:background="@drawable/form_text_field_rounded_outline">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/longitude_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_large"
+                        android:hint="@string/longitude"
+                        android:theme="@style/TextLabel"
+                        app:hintTextAppearance="@style/TextLabelHint">
+
+                        <EditText
+                            android:id="@+id/longitude"
+                            style="@style/FormTextField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:textSize="@dimen/text_small"
+                            android:text="@{viewModel.longitude}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                android:id="@+id/property_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="@dimen/dimen_large_l"
+                android:layout_toStartOf="@+id/fab"
+                app:hint="@string/property_name"
+                app:value="@={viewModel.propertyName}" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/dimen_large_l"
+                android:onClick="@{viewModel::savePredio}"
+                app:backgroundTint="@color/white"
+                app:srcCompat="@drawable/ic_keyboard_arrow_right_blue_24px" />
+
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

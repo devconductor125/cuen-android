@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#03B2E8</color>
+    <color name="colorPrimaryTranslucent">#8003B2E8</color>
+    <color name="colorPrimaryDark">#02A5E3</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorSecondary">#05D84B</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_transparent">#8CFFFFFF</color>
+    <color name="lightGrey">#C5C5C5</color>
+    <color name="predioBackground">#EFEFEF</color>
+    <color name="cuencaBase">#B5EF8A</color>
+    <color name="midGrey">#939393</color>
+    <color name="transparent">#00000000</color>
+    <color name="base_blue">#0073D1</color>
+    <color name="black_2">#4A4A4A</color>
+
+    <!-- Color option 1 -->
+    <color name="cellForeground">#05D84B</color>
+    <color name="cellShadow">#9ABE6D</color>
+    <color name="buttonTextColor">#5DD39E</color>
+    <color name="buttonShadow">#2B7189</color>
+    <color name="activityBackground">#000000</color>
+    <color name="boardBackground">#353447</color>
+    <color name="buttonContainerBackground">#41405c</color>
+    <color name="toolbarIconFill">#817E9F</color>
+    <color name="buttonForeground">#D7F171</color>
+    <color name="buttonForegroundInactive">#F79F79</color>
+    <color name="buttonShadowInactive">#817E9F</color>
+    <color name="binBackground">#817E9F</color>
+    <color name="ripple">#817E9F</color>
+    <color name="binIconColor">#FFFFFF</color>
+    <color name="toolbar">#B5EF8A</color>
+    <color name="constantCellForeground">#41405c</color>
+    <color name="constantCellShadow">#353447</color>
+    <color name="statusBarColor">#D2B79C</color>
+    <color name="listBackground">#F3F9FF</color>
+    <color name="listContentTextColor">#3B4045</color>
+    <color name="dialogBackground">#99000000</color>
+    <color name="listContentSubTextColor">#272727</color>
+    <color name="listContentSubTitleColor">#9B9B9B</color>
+    <color name="formTextFieldOutlineColor">#B2B9C0</color>
+    <color name="formTextQuestionColor">#382506</color>
+    <color name="formTextFieldTextColor">#7D7D7D</color>
+    <color name="headerTextColor">#FEFEFE</color>
+    <color name="cardDivider">#E3E3E3</color>
+    <color name="toolbarTitleColor">#3B4045</color>
+    <color name="smallLogoBackground">#004070</color>
+    <color name="logInButtonBackground">#0183BE</color>
+    <color name="lightGreen">#0CEE82</color>
+    <color name="darkGreen">#05D84B</color>
+    <color name="taskStatus1">#B0DF50</color>
+    <color name="taskStatus2">#D0021B</color>
+    <color name="task_item_divider">#BDC6CF</color>
+    <color name="action_item_divider">#BBBBBB</color>
+    <color name="task_dates">#7ED321</color>
+
+    <!-- Acciones colors -->
+    <color name="aislamiento_de_bosque_de_ladera">#FA3411</color>
+    <color name="aislamiento_bosque_de_ribera">#FFFF00</color>
+    <color name="aislamiento_de_nacimiento_con_plantulas">#CDFFF4</color>
+    <color name="accion_default">#FFFFFF</color>
+</resources>

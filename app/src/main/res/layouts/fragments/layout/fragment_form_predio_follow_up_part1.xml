@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.form.predioFollowUp.FormPredioFollowUpViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/predio_follow_up_form"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/predio_follow_up_form_title" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/basin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="@{viewModel.predioFollowUpForm.isNew}"
+                    app:hint="@string/basin"
+                    app:value="@={viewModel.predioFollowUpForm.basin}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.AutoCompleteFormTextField
+                    android:id="@+id/municipality"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="@{viewModel.predioFollowUpForm.isNew}"
+                    app:hint="@string/municipality"
+                    app:value="@={viewModel.predioFollowUpForm.municipality}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/lane"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="@{viewModel.predioFollowUpForm.isNew}"
+                    app:hint="@string/lane"
+                    app:value="@={viewModel.predioFollowUpForm.lane}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/property_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="@{viewModel.predioFollowUpForm.isNew}"
+                    app:hint="@string/property_name"
+                    app:value="@={viewModel.predioFollowUpForm.propertyName}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/program"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="@{viewModel.predioFollowUpForm.isNew}"
+                    app:hint="@string/program"
+                    app:value="@={viewModel.predioFollowUpForm.program}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/project"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="@{viewModel.predioFollowUpForm.isNew}"
+                    app:hint="@string/project"
+                    app:value="@={viewModel.predioFollowUpForm.project}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/object"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="@{viewModel.predioFollowUpForm.isNew}"
+                    app:hint="@string/object"
+                    app:value="@={viewModel.predioFollowUpForm.object}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/activities" />
+
+                <FrameLayout
+                    android:id="@+id/form_field_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/text_small"
+                    android:layout_marginStart="@dimen/text_small"
+                    android:layout_marginTop="@dimen/dimen_large_l"
+                    android:background="@drawable/form_text_field_rounded_outline">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/comment_container_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/comment_height"
+                        android:layout_marginTop="@dimen/dimen_large"
+                        android:gravity="top"
+                        android:hint="@string/predio_follow_up_observations"
+                        android:paddingTop="@dimen/dimen_medium_s"
+                        android:theme="@style/TextLabel">
+
+                        <EditText
+                            android:id="@+id/comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/transparent"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="top"
+                            android:inputType="textMultiLine"
+                            android:lines="8"
+                            android:maxLines="40"
+                            android:scrollbars="vertical"
+                            android:text="@={viewModel.predioFollowUpForm.comments}"
+                            android:textColor="@color/formTextFieldTextColor"
+                            android:textSize="@dimen/text_small" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onSaveParcelable}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/send"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

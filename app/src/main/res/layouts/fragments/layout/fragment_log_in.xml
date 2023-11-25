@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.LogInViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/top_to_bottom_gradient"
+        android:clickable="true"
+        android:descendantFocusability="beforeDescendants"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/planet_intro" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/small_logo_background_height"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/smallLogoBackground"
+            android:padding="@dimen/dimen_medium"
+            app:srcCompat="@drawable/cc_logo" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="@dimen/imago_size"
+                android:layout_height="@dimen/imago_size"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/imago_bottom_margin_top"
+                app:srcCompat="@drawable/ic_sieeve_brand_imago" />
+
+            <ImageView
+                android:id="@+id/logo_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/logo_name_height"
+                android:layout_below="@+id/logo"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/logo_name_margin_top"
+                app:srcCompat="@drawable/ic_sieeve_logotype" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/username_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/logo_name"
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:hint="@string/username"
+                android:theme="@style/TextLabelWhite">
+
+                <EditText
+                    android:id="@+id/username"
+                    style="@style/AppTextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:text="@={viewModel.logInCredentials.username}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/username_container"
+                android:layout_marginTop="@dimen/dimen_large"
+                android:hint="@string/password"
+                android:theme="@style/TextLabelWhite">
+
+                <EditText
+                    android:id="@+id/password"
+                    style="@style/AppTextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:text="@={viewModel.logInCredentials.password}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/action_button_height"
+                android:layout_below="@+id/password_container"
+                android:layout_marginBottom="@dimen/action_button_margin_top_log_in"
+                android:layout_marginEnd="@dimen/dimen_xlarge"
+                android:layout_marginStart="@dimen/dimen_xlarge"
+                android:layout_marginTop="@dimen/action_button_margin_top_log_in"
+                android:background="@drawable/button_white_rounded_outline"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{viewModel::logIn}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/log_in"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_medium" />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

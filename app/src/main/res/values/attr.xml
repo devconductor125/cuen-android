@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="cellForeground" format="reference" />
+    <attr name="cellShadow" format="reference" />
+    <attr name="buttonTextColor" format="reference" />
+    <attr name="buttonShadow" format="reference" />
+    <attr name="buttonContainerBackground" format="reference" />
+    <attr name="activityBackground" format="reference" />
+    <attr name="boardBackground" format="reference" />
+    <attr name="buttonForeground" format="reference" />
+    <attr name="toolbarIconFill" format="reference" />
+    <attr name="buttonForegroundInactive" format="reference" />
+    <attr name="buttonShadowInactive" format="reference" />
+    <attr name="binIconColor" format="reference" />
+    <attr name="binBackground" format="reference" />
+    <attr name="toolbar" format="reference" />
+    <attr name="constantCellForeground" format="reference" />
+    <attr name="constantCellShadow" format="reference" />
+    <attr name="constantCellTextColor" format="reference" />
+    <attr name="statusBarColor" format="reference" />
+
+    <declare-styleable name="Toolbar">
+        <attr name="custom_title" format="string" />
+        <attr name="custom_title_resource" format="string" />
+        <attr name="start_icon" format="integer" />
+        <attr name="right_mid_icon" format="integer" />
+        <attr name="right_end_icon" format="integer" />
+        <attr name="background_color" format="color" />
+        <attr name="background_drawable" format="integer" />
+        <attr name="text_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="FormTextField">
+        <attr name="value" format="string" />
+        <attr name="hint" format="string" />
+        <attr name="fieldType" format="string" />
+        <attr name="editable" format="boolean" />
+        <attr name="mandatory" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="FormSpinner">
+        <attr name="isMandatory" format="boolean" />
+        <attr name="mandatoryAlertOn" format="boolean" />
+    </declare-styleable>
+</resources>

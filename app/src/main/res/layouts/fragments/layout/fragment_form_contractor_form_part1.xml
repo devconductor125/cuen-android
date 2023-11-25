@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.form.contractorForm.FormContractorFormViewMvvm.ViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/contractor_form"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FormTitleText"
+                    android:text="@string/contractor_form"
+                    tools:text="Encuesta predio" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/workforce_type" />
+
+                <CheckBox
+                    android:id="@+id/professional"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.contractorForm.workForce.professional}"
+                    android:text="@string/professional" />
+
+                <CheckBox
+                    android:id="@+id/technological"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.contractorForm.workForce.technological}"
+                    android:text="@string/technological" />
+
+                <CheckBox
+                    android:id="@+id/technical"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.contractorForm.workForce.technical}"
+                    android:text="@string/technical" />
+
+                <CheckBox
+                    android:id="@+id/unqualified"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.contractorForm.workForce.unqualified}"
+                    android:text="@string/unqualified" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/men"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/men"
+                    app:value="@={viewModel.contractorForm.men}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/women"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/women"
+                    app:value="@={viewModel.contractorForm.women}" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/dimen_xlarge">
+
+                    <Button
+                        android:id="@+id/start_date_button"
+                        style="@style/FormButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:onClick="@{viewModel::showDatePicker}"
+                        android:text="@string/start_date" />
+
+                    <TextView
+                        android:id="@+id/start_date"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/start_date_button"
+                        android:layout_alignTop="@+id/start_date_button"
+                        android:layout_marginTop="@dimen/dimen_invisible"
+                        android:layout_toEndOf="@+id/start_date_button"
+                        android:text="@{viewModel.contractorForm.startDate.string}" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/dimen_xlarge">
+
+                    <Button
+                        android:id="@+id/report_date_button"
+                        style="@style/FormButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:onClick="@{viewModel::showDatePicker}"
+                        android:text="@string/report_date" />
+
+                    <TextView
+                        android:id="@+id/report_date"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/report_date_button"
+                        android:layout_alignTop="@+id/report_date_button"
+                        android:layout_marginTop="@dimen/dimen_invisible"
+                        android:layout_toEndOf="@+id/report_date_button"
+                        android:text="@{viewModel.contractorForm.reportDate.string}" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/dimen_xlarge">
+
+                    <Button
+                        android:id="@+id/completion_date_button"
+                        style="@style/FormButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:onClick="@{viewModel::showDatePicker}"
+                        android:text="@string/completion_date" />
+
+                    <TextView
+                        android:id="@+id/completion_date"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/completion_date_button"
+                        android:layout_alignTop="@+id/completion_date_button"
+                        android:layout_marginTop="@dimen/dimen_invisible"
+                        android:layout_toEndOf="@+id/completion_date_button"
+                        android:text="@{viewModel.contractorForm.completionDate.string}" />
+
+                </RelativeLayout>
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/barbed_wire"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/barbed_wire"
+                    app:value="@={viewModel.contractorForm.barbedWire}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/plain_wire"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/plain_wire"
+                    app:value="@={viewModel.contractorForm.plainWire}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/wood_arms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/wood_arms"
+                    app:value="@={viewModel.contractorForm.woodArms}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/seedlings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/seedlings"
+                    app:value="@={viewModel.contractorForm.seedlings}" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/dimen_xlarge">
+
+                    <Button
+                        android:id="@+id/sowing_date_button"
+                        style="@style/FormButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:onClick="@{viewModel::showDatePicker}"
+                        android:text="@string/sowing_date" />
+
+                    <TextView
+                        android:id="@+id/sowing_date"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/sowing_date_button"
+                        android:layout_alignTop="@+id/sowing_date_button"
+                        android:layout_marginTop="@dimen/dimen_invisible"
+                        android:layout_toEndOf="@+id/sowing_date_button"
+                        android:text="@{viewModel.contractorForm.sowingDate.string}" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/dimen_xlarge">
+
+                    <Button
+                        android:id="@+id/maintenance_date_button"
+                        style="@style/FormButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:onClick="@{viewModel::showDatePicker}"
+                        android:text="@string/maintenance_date" />
+
+                    <TextView
+                        android:id="@+id/maintenance_date"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/maintenance_date_button"
+                        android:layout_alignTop="@+id/maintenance_date_button"
+                        android:layout_marginTop="@dimen/dimen_invisible"
+                        android:layout_toEndOf="@+id/maintenance_date_button"
+                        android:text="@{viewModel.contractorForm.maintenanceDate.string}" />
+
+                </RelativeLayout>
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/stards_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/stards_number"
+                    app:value="@={viewModel.contractorForm.stardsNumber}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/sprues_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/sprues_number"
+                    app:value="@={viewModel.contractorForm.spruesNumber}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/water_tanks_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/water_tanks_number"
+                    app:value="@={viewModel.contractorForm.waterTanksNumber}" />
+
+                <FrameLayout
+                    android:id="@+id/comment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/text_small"
+                    android:layout_marginStart="@dimen/text_small"
+                    android:layout_marginTop="@dimen/dimen_large_l"
+                    android:background="@drawable/form_text_field_rounded_outline">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/comment_container_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/comment_height"
+                        android:layout_marginTop="@dimen/dimen_large"
+                        android:gravity="top"
+                        android:hint="@string/observations"
+                        android:paddingTop="@dimen/dimen_medium_s"
+                        android:theme="@style/TextLabel">
+
+                        <EditText
+                            android:id="@+id/comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/transparent"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="top"
+                            android:inputType="textMultiLine"
+                            android:lines="8"
+                            android:maxLines="40"
+                            android:scrollbars="vertical"
+                            android:text="@={viewModel.contractorForm.comments}"
+                            android:textColor="@color/formTextFieldTextColor"
+                            android:textSize="@dimen/text_small" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onSaveParcelable}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/save"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.PhotographicRegistryPhotoItemViewMvvm.ViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/images_list_height"
+        android:background="@color/predioBackground">
+
+        <FrameLayout
+            android:id="@+id/photo_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/photo"
+                android:transitionName="photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:cuenca_photo="@{viewModel.imageUri}" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="@drawable/card_gradient_ripple_white_foreground"
+                android:onClick="@{viewModel::onClick}"
+                android:onLongClick="@{(view) -> viewModel.switchDeleteStatus(view)}" />
+
+            <ImageView
+                android:id="@+id/on_delete_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryTranslucent"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{viewModel::switchDeleteStatusFromClick}"
+                android:visibility="@{viewModel.deleteActive ? View.VISIBLE : View.GONE}" />
+
+            <ImageView
+                android:id="@+id/on_delete_icon"
+                android:layout_width="@dimen/dimen_xxlarge"
+                android:layout_height="@dimen/dimen_xxlarge"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dimen_large_l"
+                android:src="@drawable/ic_delete_forever_black_24dp"
+                android:visibility="@{viewModel.deleteActive ? View.VISIBLE : View.GONE}" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</layout>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.form.stardMonitorAndMaintenance.FormStardMonitorAndMaintenanceViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/stard_form"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical">
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/distance_to_stard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="false"
+                    app:hint="@string/distance_to_stard"
+                    app:value="@={viewModel.stardMonitorAndMaintenance.distanceToStard}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/distance_to_grease_trap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="false"
+                    app:hint="@string/distance_to_grease_trap"
+                    app:value="@={viewModel.stardMonitorAndMaintenance.distanceToGreaseTrap}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/tank_capacity" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/liter_1000"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardMonitorAndMaintenance.stardTankCapacity.lt1000}"
+                        android:text="@string/liter_1000" />
+
+                    <RadioButton
+                        android:id="@+id/liter_1500"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardMonitorAndMaintenance.stardTankCapacity.lt1500}"
+                        android:text="@string/liter_1500" />
+
+                    <RadioButton
+                        android:id="@+id/liter_2000"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardMonitorAndMaintenance.stardTankCapacity.lt2000}"
+                        android:text="@string/liter_2000" />
+
+                    <RadioButton
+                        android:id="@+id/liter_2500"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardMonitorAndMaintenance.stardTankCapacity.lt2500}"
+                        android:text="@string/liter_2500" />
+
+                    <RadioButton
+                        android:id="@+id/liter_3000"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardMonitorAndMaintenance.stardTankCapacity.lt3000}"
+                        android:text="@string/liter_3000" />
+
+                    <RadioButton
+                        android:id="@+id/liter_3500"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardMonitorAndMaintenance.stardTankCapacity.lt3500}"
+                        android:text="@string/liter_3500" />
+
+                    <RadioButton
+                        android:id="@+id/liter_4000"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardMonitorAndMaintenance.stardTankCapacity.lt4000}"
+                        android:text="@string/liter_4000" />
+
+                    <RadioButton
+                        android:id="@+id/liter_4500"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardMonitorAndMaintenance.stardTankCapacity.lt4500}"
+                        android:text="@string/liter_4500" />
+
+                    <RadioButton
+                        android:id="@+id/liter_5000"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardMonitorAndMaintenance.stardTankCapacity.lt5000}"
+                        android:text="@string/liter_5000" />
+
+                </RadioGroup>
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/discharge_type" />
+
+                <CheckBox
+                    android:id="@+id/absorption_well"
+                    style="@style/FormRadioButton"
+                    android:checked="@={viewModel.stardMonitorAndMaintenance.stardDischargeType.absorptionWell}"
+                    android:text="@string/absorption_well" />
+
+                <CheckBox
+                    android:id="@+id/infiltration_field"
+                    style="@style/FormRadioButton"
+                    android:checked="@={viewModel.stardMonitorAndMaintenance.stardDischargeType.infiltrationField}"
+                    android:text="@string/infiltration_field" />
+
+                <CheckBox
+                    android:id="@+id/hydrological_source"
+                    style="@style/FormRadioButton"
+                    android:checked="@={viewModel.stardMonitorAndMaintenance.stardDischargeType.hydrologicalSource}"
+                    android:text="@string/hydrological_source" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/maintenance_type" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/preventive"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardMonitorAndMaintenance.maintenanceType.preventive}"
+                        android:text="@string/preventive" />
+
+                    <RadioButton
+                        android:id="@+id/corrective"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardMonitorAndMaintenance.maintenanceType.corrective}"
+                        android:text="@string/corrective" />
+
+                    <RadioButton
+                        android:id="@+id/urgent"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardMonitorAndMaintenance.maintenanceType.urgent}"
+                        android:text="@string/urgent" />
+
+                </RadioGroup>
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/observations" />
+
+                <FrameLayout
+                    android:id="@+id/form_field_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text_small"
+                    android:layout_marginTop="@dimen/dimen_large_l"
+                    android:layout_marginEnd="@dimen/text_small"
+                    android:background="@drawable/form_text_field_rounded_outline">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/comment_container_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/comment_height"
+                        android:layout_marginTop="@dimen/dimen_large"
+                        android:gravity="top"
+                        android:hint="@string/observations"
+                        android:paddingTop="@dimen/dimen_medium_s"
+                        android:theme="@style/TextLabel">
+
+                        <EditText
+                            android:id="@+id/comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/transparent"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="top"
+                            android:inputType="textMultiLine"
+                            android:lines="8"
+                            android:maxLines="40"
+                            android:scrollbars="vertical"
+                            android:text="@={viewModel.stardMonitorAndMaintenance.comments}"
+                            android:textColor="@color/formTextFieldTextColor"
+                            android:textSize="@dimen/text_small" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onSaveParcelable}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/send"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

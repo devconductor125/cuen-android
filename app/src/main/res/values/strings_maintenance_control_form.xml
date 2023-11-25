@@ -1,0 +1,7 @@
+<resources>
+    <string name="maintenance_control_form">Formato control mantenimientos</string>
+    <string name="number">No.</string>
+    <string name="species">Especies</string>
+    <string name="maintenances">Mantenimientos</string>
+    <string name="overseeding">Resiembra</string>
+</resources>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.form.survey.FormSurveyViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/form"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:right_end_icon="@drawable/ic_sieeve_brand_imago_white"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FormTitleText"
+                    android:text="@{viewModel.predioPotencialId}"
+                    tools:text="Encuesta predio" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/property_info" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/dimen_xlarge">
+
+                    <Button
+                        android:id="@+id/date_button"
+                        style="@style/FormButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:onClick="@{viewModel::showDatePicker}"
+                        android:text="@string/visit_date" />
+
+                    <TextView
+                        android:id="@+id/visit_date"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/date_button"
+                        android:layout_alignTop="@+id/date_button"
+                        android:layout_marginTop="@dimen/dimen_invisible"
+                        android:layout_toEndOf="@+id/date_button"
+                        android:text="@{viewModel.survey.propertyVisitDate.string}" />
+
+                </RelativeLayout>
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/property_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editable="false"
+                    app:hint="@string/property_name"
+                    app:value="@={viewModel.survey.propertyName}" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    android:paddingEnd="@dimen/dimen_xlarge"
+                    android:paddingStart="@dimen/dimen_xlarge"
+                    android:paddingTop="@dimen/dimen_xlarge">
+
+                    <Button
+                        android:id="@+id/property_correlation_button"
+                        style="@style/FormButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewModel::showCorrelationDialog}"
+                        android:text="@string/property_correlation" />
+
+                    <TextView
+                        android:id="@+id/property_correlation"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_small_s"
+                        android:text="@{viewModel.survey.propertyCorrelation}" />
+
+                </LinearLayout>
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/property_correlation_other"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.survey.hasOtherPropertyCorrelation ? View.VISIBLE : View.GONE}"
+                    app:editable="true"
+                    app:hint="@string/property_correlation_other"
+                    app:value="@={viewModel.survey.propertyCorrelationOther}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/contact_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/contact_name"
+                    app:value="@={viewModel.survey.contact.contactName}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/id_card_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/id_card_number"
+                    app:value="@={viewModel.survey.contact.contactIdCardNumber}" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_meat"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.propertyColantaPartner}"
+                    android:text="@string/colanta_partner" />
+
+                <CheckBox
+                    android:id="@+id/milk_merchant"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.survey.propertyMilkMerchant}"
+                    android:text="@string/milk_merchant" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/land_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/land_line"
+                    app:value="@={viewModel.survey.contact.contactLandLineNumber}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/mobile_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_NUMBER}"
+                    app:hint="@string/mobile_number"
+                    app:value="@={viewModel.survey.contact.contactMobileNumber}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/contactEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fieldType="@{FormTextField.FIELD_TYPE_EMAIL}"
+                    app:hint="@string/contactEmail"
+                    app:value="@={viewModel.survey.contact.contactEmail}" />
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onNextStep}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/next_Step"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

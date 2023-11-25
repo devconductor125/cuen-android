@@ -1,0 +1,5 @@
+<resources>
+    <string name="erosive_process_detail">Formato monitoreo de procesos erosivos</string>
+    <string name="new_erosive_process_detail">Crear formato de procesos erosivos</string>
+    <string name="identification_date">Fecha identificación</string>
+</resources>

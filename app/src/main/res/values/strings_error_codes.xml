@@ -1,0 +1,6 @@
+<resources>
+    <string name="unauthorized">Nombre de usuario o contraseña incorrectos</string>
+    <string name="connection_exception">El servidor no responde, intenta de nuevo más tarde</string>
+    <string name="bad_response">Algo ha ocurrido, contacta al administrador</string>
+    <string name="no_connection_error_message">Sin conexión a internet</string>
+</resources>

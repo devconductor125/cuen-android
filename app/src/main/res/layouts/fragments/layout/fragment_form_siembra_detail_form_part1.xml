@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.form.siembraDetailForm.FormSiembraDetailFormViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/siembra_detail"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FormTitleText"
+                    android:text="@string/siembra_detail"
+                    tools:text="Encuesta predio" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/activity" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/establishment"
+                        style="@style/FormCheckBox"
+                        android:checked="@={viewModel.siembraDetailForm.establishment}"
+                        android:onClick="@{viewModel::refreshView}"
+                        android:text="@string/establishment" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_medium"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.siembraDetailForm.establishment ? View.VISIBLE : View.GONE}">
+
+                        <CheckBox
+                            android:id="@+id/establishment_hillside"
+                            style="@style/FormCheckBox"
+                            android:checked="@={viewModel.siembraDetailForm.establishmentOptions.hillside}"
+                            android:text="@string/hillside" />
+
+                        <CheckBox
+                            android:id="@+id/establishment_riverbank"
+                            style="@style/FormCheckBox"
+                            android:checked="@={viewModel.siembraDetailForm.establishmentOptions.riverbank}"
+                            android:text="@string/riverbank" />
+
+                        <CheckBox
+                            android:id="@+id/establishment_spring"
+                            style="@style/FormCheckBox"
+                            android:checked="@={viewModel.siembraDetailForm.establishmentOptions.spring}"
+                            android:text="@string/spring" />
+
+                    </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/enrichment"
+                        style="@style/FormCheckBox"
+                        android:checked="@={viewModel.siembraDetailForm.enrichment}"
+                        android:onClick="@{viewModel::refreshView}"
+                        android:text="@string/enrichment" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_medium"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.siembraDetailForm.enrichment ? View.VISIBLE : View.GONE}">
+
+                        <CheckBox
+                            android:id="@+id/enrichment_hillside"
+                            style="@style/FormCheckBox"
+                            android:checked="@={viewModel.siembraDetailForm.enrichmentOptions.hillside}"
+                            android:text="@string/hillside" />
+
+                        <CheckBox
+                            android:id="@+id/enrichment_riverbank"
+                            style="@style/FormCheckBox"
+                            android:checked="@={viewModel.siembraDetailForm.enrichmentOptions.riverbank}"
+                            android:text="@string/riverbank" />
+
+                        <CheckBox
+                            android:id="@+id/enrichment_spring"
+                            style="@style/FormCheckBox"
+                            android:checked="@={viewModel.siembraDetailForm.enrichmentOptions.spring}"
+                            android:text="@string/spring" />
+
+                    </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/insulation"
+                        style="@style/FormCheckBox"
+                        android:checked="@={viewModel.siembraDetailForm.insulation}"
+                        android:onClick="@{viewModel::refreshView}"
+                        android:text="@string/insulation" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_medium"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.siembraDetailForm.insulation ? View.VISIBLE : View.GONE}">
+
+                        <CheckBox
+                            android:id="@+id/insulation_hillside"
+                            style="@style/FormCheckBox"
+                            android:checked="@={viewModel.siembraDetailForm.insulationOptions.hillside}"
+                            android:text="@string/hillside" />
+
+                        <CheckBox
+                            android:id="@+id/insulation_riverbank"
+                            style="@style/FormCheckBox"
+                            android:checked="@={viewModel.siembraDetailForm.insulationOptions.riverbank}"
+                            android:text="@string/riverbank" />
+
+                        <CheckBox
+                            android:id="@+id/insulation_spring"
+                            style="@style/FormCheckBox"
+                            android:checked="@={viewModel.siembraDetailForm.insulationOptions.spring}"
+                            android:text="@string/spring" />
+
+                    </LinearLayout>
+
+                </RadioGroup>
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/scientific_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/scientific_name"
+                    app:mandatory="true"
+                    app:value="@={viewModel.siembraDetailForm.scientificName}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/common_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/common_name"
+                    app:mandatory="true"
+                    app:value="@={viewModel.siembraDetailForm.commonName}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/quantity"
+                    app:mandatory="true"
+                    app:value="@={viewModel.siembraDetailForm.quantity}" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/dimen_xlarge">
+
+                    <Button
+                        android:id="@+id/sowing_date_button"
+                        style="@style/FormButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:onClick="@{viewModel::showDatePicker}"
+                        android:text="@string/sowing_date" />
+
+                    <TextView
+                        android:id="@+id/sowing_date"
+                        style="@style/FormText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/sowing_date_button"
+                        android:layout_alignTop="@+id/sowing_date_button"
+                        android:layout_marginTop="@dimen/dimen_invisible"
+                        android:layout_toEndOf="@+id/sowing_date_button"
+                        android:text="@{viewModel.siembraDetailForm.sowingDate.string}" />
+
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:id="@+id/comment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/text_small"
+                    android:layout_marginStart="@dimen/text_small"
+                    android:layout_marginTop="@dimen/dimen_large_l"
+                    android:background="@drawable/form_text_field_rounded_outline">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/comment_container_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/comment_height"
+                        android:layout_marginTop="@dimen/dimen_large"
+                        android:gravity="top"
+                        android:hint="@string/observations"
+                        android:paddingTop="@dimen/dimen_medium_s"
+                        android:theme="@style/TextLabel">
+
+                        <EditText
+                            android:id="@+id/comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/transparent"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="top"
+                            android:inputType="textMultiLine"
+                            android:lines="8"
+                            android:maxLines="40"
+                            android:scrollbars="vertical"
+                            android:text="@={viewModel.siembraDetailForm.comments}"
+                            android:textColor="@color/formTextFieldTextColor"
+                            android:textSize="@dimen/text_small" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onSaveParcelable}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/save"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

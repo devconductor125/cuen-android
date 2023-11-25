@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField" />
+
+        <variable
+            name="viewModel"
+            type="com.orquitech.development.cuencaVerde.presentation.views.viewModel.form.stardSheetForm.FormStardSheetFormViewMvvm.ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/listBackground"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <com.orquitech.development.cuencaVerde.presentation.views.widgets.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_smaller"
+            app:background_drawable="@drawable/right_to_left_gradient"
+            app:custom_title="@string/stard_sheet_form"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:start_icon="@drawable/ic_arrow_back_white_24px"
+            app:text_color="@android:color/white" />
+
+        <ScrollView
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/residual_discharge_location" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/river"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/river"
+                    app:value="@={viewModel.stardSheetForm.basicInformation.dischargeLocation.river}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/stream"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/stream"
+                    app:value="@={viewModel.stardSheetForm.basicInformation.dischargeLocation.stream}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/sewer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/sewer"
+                    app:value="@={viewModel.stardSheetForm.basicInformation.dischargeLocation.sewer}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/soil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/soil"
+                    app:value="@={viewModel.stardSheetForm.basicInformation.dischargeLocation.soil}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/open_sky"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/open_sky"
+                    app:value="@={viewModel.stardSheetForm.basicInformation.dischargeLocation.openSky}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/sink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/sink"
+                    app:value="@={viewModel.stardSheetForm.basicInformation.dischargeLocation.sink}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/other"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/other"
+                    app:value="@={viewModel.stardSheetForm.basicInformation.dischargeLocation.other}" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/is_the_bathroom_discharge_independent" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/yes"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardSheetForm.basicInformation.bathRoomDischarge.yes}"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:id="@+id/no"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardSheetForm.basicInformation.bathRoomDischarge.no}"
+                        android:text="@string/no" />
+
+                    <RadioButton
+                        android:id="@+id/does_not_exist"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardSheetForm.basicInformation.bathRoomDischarge.doesNotExist}"
+                        android:text="@string/does_not_exist" />
+
+                </RadioGroup>
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/is_it_required_to_demolish_exterior_household_floors" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/demolition_requirements_yes"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardSheetForm.basicInformation.demolitionRequirements.yes}"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:id="@+id/demolition_requirements_no"
+                        style="@style/FormRadioButton"
+                        android:checked="@={viewModel.stardSheetForm.basicInformation.demolitionRequirements.no}"
+                        android:text="@string/no" />
+
+                </RadioGroup>
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/length"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/length"
+                    app:value="@={viewModel.stardSheetForm.basicInformation.demolitionRequirements.length}" />
+
+                <com.orquitech.development.cuencaVerde.presentation.views.widgets.FormTextField
+                    android:id="@+id/material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hint="@string/material"
+                    app:value="@={viewModel.stardSheetForm.basicInformation.demolitionRequirements.material}" />
+
+                <CheckBox
+                    android:id="@+id/is_the_kitchen_stream_independent_form_the_sanitary_unit"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.stardSheetForm.basicInformation.kitchenWaters.theKitchenStreamIndependentFormTheSanitaryUnit}"
+                    android:text="@string/is_the_kitchen_stream_independent_form_the_sanitary_unit" />
+
+                <CheckBox
+                    android:id="@+id/does_the_kitchen_stream_have_a_grease_trap"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.stardSheetForm.basicInformation.kitchenWaters.doesTheKitchenStreamHaveAGreaseTrap}"
+                    android:text="@string/does_the_kitchen_stream_have_a_grease_trap" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/terrain_condition" />
+
+                <CheckBox
+                    android:id="@+id/high_slope"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.stardSheetForm.basicInformation.terrainCondition.highSlope}"
+                    android:text="@string/high_slope" />
+
+                <CheckBox
+                    android:id="@+id/are_there_erosive_processes"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.stardSheetForm.basicInformation.terrainCondition.areThereErosiveProcesses}"
+                    android:text="@string/are_there_erosive_processes" />
+
+                <TextView
+                    style="@style/FormSubTitleText"
+                    android:text="@string/stard_enclosure_preference" />
+
+                <CheckBox
+                    android:id="@+id/smooth_wire"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.stardSheetForm.basicInformation.stardEnclosurePreference.smoothWire}"
+                    android:text="@string/smooth_wire" />
+
+                <CheckBox
+                    android:id="@+id/barb_wire"
+                    style="@style/FormCheckBox"
+                    android:checked="@={viewModel.stardSheetForm.basicInformation.stardEnclosurePreference.barbWire}"
+                    android:text="@string/barb_wire" />
+
+                <FrameLayout
+                    android:id="@+id/comment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/text_small"
+                    android:layout_marginStart="@dimen/text_small"
+                    android:layout_marginTop="@dimen/dimen_large_l"
+                    android:background="@drawable/form_text_field_rounded_outline">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/comment_container_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/comment_height"
+                        android:layout_marginTop="@dimen/dimen_large"
+                        android:gravity="top"
+                        android:hint="@string/observations"
+                        android:paddingTop="@dimen/dimen_medium_s"
+                        android:theme="@style/TextLabel">
+
+                        <EditText
+                            android:id="@+id/title"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/transparent"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="top"
+                            android:inputType="textMultiLine"
+                            android:maxLines="40"
+                            android:scrollbars="vertical"
+                            android:text="@={viewModel.stardSheetForm.comments}"
+                            android:textColor="@color/formTextFieldTextColor"
+                            android:textSize="@dimen/text_small" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    style="@style/FormNextStepButton"
+                    android:onClick="@{viewModel::onSaveParcelable}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/save"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_medium" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>
